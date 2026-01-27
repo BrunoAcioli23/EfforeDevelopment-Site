@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Premium Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0f172a; /* Azul marinho quase preto */
+            --card-bg: rgba(30, 41, 59, 0.7); /* Vidro escuro */
+            --hover-bg: rgba(51, 65, 85, 0.9);
+            --primary-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6); /* Azul para Roxo */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(148, 163, 184, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            /* Background com "Glow" fixo */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Cartão de Perfil */
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Barra colorida no topo do card */
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 6px;
+            background: var(--primary-gradient);
+        }
+
+        .logo-wrapper {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px; /* Quadrado arredondado é mais "tech" que círculo */
+            object-fit: contain;
+            background: #fff;
+            padding: 5px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: var(--primary-gradient);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 3px solid var(--bg-dark); /* Cria o recorte visual */
+        }
+
+        .profile-card h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        /* Grid de Ações Rápidas (Dashboard Style) */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .action-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Alinhado à esquerda */
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn i {
+            font-size: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            border-radius: 12px;
+            color: #60a5fa; /* Azul claro */
+        }
+
+        .action-btn span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .action-btn small {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .action-btn:hover {
+            background: var(--hover-bg);
+            transform: translateY(-3px);
+            border-color: rgba(139, 92, 246, 0.5); /* Borda roxa ao passar mouse */
+        }
+
+        /* Links Principais (Lista Larga) */
+        .main-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-row {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-row:hover {
+            background: var(--hover-bg);
+            padding-left: 35px; /* Movimento sutil do texto */
+        }
+
+        /* Pequena barra lateral colorida no hover */
+        .link-row::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .link-row:hover::before {
+            opacity: 1;
+        }
+
+        .link-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .link-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .link-icon {
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+        
+        .link-row:hover .link-icon {
+            opacity: 1;
+            transform: translateX(5px);
+            color: #8b5cf6;
+        }
+
+        /* Banner Promocional / Vídeo */
+        .featured-banner {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border);
+            height: 160px; /* Altura fixa para banner */
+        }
+        
+        .featured-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+        }
+
+        .banner-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #f8fafc;
+        }
+        
+        .featured-banner:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        footer a { color: var(--text-muted); text-decoration: none; transition: 0.2s; }
+        footer a:hover { color: var(--text-main); }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="profile-card">
+            <div class="logo-wrapper">
+                <img src="Assets/DefaultUser.png" alt="Logo" class="logo">
+                <div class="verified-badge"><i class="fas fa-check"></i></div>
+            </div>
+            <h1>Innovate Tech</h1>
+            <p>Soluções digitais de alta performance para empresas que pensam no futuro.</p>
+        </div>
+
+        <div class="quick-actions">
+            <a href="#" class="action-btn">
+                <i class="fas fa-calendar-check"></i>
+                <span>Agendar Reunião</span>
+                <small>Google Meet</small>
+            </a>
+            <a href="#" class="action-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>Suporte Pro</span>
+                <small>Atendimento 24h</small>
+            </a>
+        </div>
+
+        <a href="#" class="featured-banner">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Office">
+            <div class="banner-overlay">
+                <span class="banner-text">Conheça nossa nova Sede →</span>
+            </div>
+        </a>
+
+        <div class="main-links">
+            <a href="#" class="link-row">
+                <div class="link-content">
+                    <span class="link-title">Visite nosso Site Oficial</span>
+                    <span class="link-sub">innovate-tech.com.br</span>
+                </div>
+                <i class="fas fa-external-link-alt link-icon"></i>
+            </a>
+
+            <a href="#" class="link-row">
+                <div class="link-content">
+                    <span class="link-title">Baixar Mídia Kit</span>
+                    <span class="link-sub">PDF • Apresentação 2024</span>
+                </div>
+                <i class="fas fa-download link-icon"></i>
+            </a>
+
+            <a href="#" class="link-row">
+                <div class="link-content">
+                    <span class="link-title">Trabalhe Conosco</span>
+                    <span class="link-sub">Vagas abertas para Dev e Design</span>
+                </div>
+                <i class="fas fa-briefcase link-icon"></i>
+            </a>
+        </div>
+
+        <footer>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fas fa-envelope"></i> Email</a>
+        </footer>
+
+        <div style="text-align: center; margin-top: 30px; padding: 20px 0; opacity: 0.6; font-size: 0.75rem; color: #94a3b8;">
+            Desenvolvido por <a href="https://efforedevelopment.com.br" target="_blank" style="color: #8b5cf6; text-decoration: none; font-weight: 500;">Effore Development</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Links Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-color: #ffffff;
+            --hover-bg: rgba(255, 255, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* Gradiente Animado de Fundo */
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Efeito de Vidro no Container Principal (opcional, remove se quiser mais limpo) */
+            background: rgba(0, 0, 0, 0.2); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Foto de Perfil com Animação */
+        .profile-img-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.5);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p.bio {
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Botões */
+        .links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ícone na esquerda, seta na direita */
+            background: var(--glass-bg);
+            padding: 18px 25px;
+            border-radius: 50px; /* Borda arredondada completa (pill shape) */
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item span {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .link-item i {
+            font-size: 1.2rem;
+        }
+
+        .link-item:hover {
+            background: var(--hover-bg);
+            transform: translateY(-3px); /* Levanta levemente */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Ícones Sociais no Rodapé */
+        .socials {
+            margin-top: 35px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .socials a {
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .socials a:hover {
+            transform: scale(1.2) rotate(10deg);
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-img-container">
+            <img src="Assets/DefaultUser.png" alt="Foto de Perfil" class="profile-img">
+        </div>
+        
+        <h1>Seu Nome</h1>
+        <p class="bio">Criador Digital | Tech Enthusiast</p>
+
+        <div class="links">
+            <a href="#" class="link-item">
+                <i class="fab fa-whatsapp"></i> <span>Falar no WhatsApp</span>
+                <i class="fas fa-chevron-right" style="opacity: 0.5; font-size: 0.8rem;"></i>
+            </a>
+
+            <a href="#" class="link-item">
+                <i class="fas fa-laptop-code"></i>
+                <span>Meu Portfólio</span>
+                <i class="fas fa-chevron-right" style="opacity: 0.5; font-size: 0.8rem;"></i>
+            </a>
+
+            <a href="#" class="link-item">
+                <i class="fab fa-youtube"></i>
+                <span>Vídeo Novo no Canal</span>
+                <i class="fas fa-chevron-right" style="opacity: 0.5; font-size: 0.8rem;"></i>
+            </a>
+            
+            <a href="#" class="link-item">
+                <i class="fas fa-coffee"></i>
+                <span>Me pague um café</span>
+                <i class="fas fa-chevron-right" style="opacity: 0.5; font-size: 0.8rem;"></i>
+            </a>
+        </div>
+
+        <div class="socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px; padding-top: 15px; opacity: 0.7; font-size: 0.75rem; color: rgba(255, 255, 255, 0.8);">
+            Desenvolvido por <a href="https://efforedevelopment.com.br" target="_blank" style="color: rgba(255, 255, 255, 0.95); text-decoration: none; font-weight: 500;">Effore Development</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo-Pop Creative</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #f0f0f0;
+            --main-accent: #a29bfe; /* Roxo suave */
+            --second-accent: #fdcb6e; /* Amarelo mostarda */
+            --third-accent: #ff7675; /* Rosa Salmão */
+            --border-color: #000000;
+            --border-width: 3px;
+            --shadow-offset: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            /* Padrão de Grid no fundo */
+            background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+            linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+            /* Deixa o grid bem suave */
+            background-blend-mode: overlay;
+            opacity: 1; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Letreiro Rolante (Marquee) */
+        .marquee-container {
+            width: 100%;
+            background: var(--border-color);
+            color: #fff;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: var(--border-width) solid var(--border-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            animation: scroll 15s linear infinite;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Card de Perfil "Quebrado" */
+        .profile-card {
+            background: #fff;
+            border: var(--border-width) solid var(--border-color);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            /* Sombra Dura */
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--border-color);
+            transition: 0.2s;
+            position: relative;
+        }
+        
+        /* Detalhe decorativo no canto */
+        .profile-card::after {
+            content: '!';
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            background: var(--second-accent);
+            border: var(--border-width) solid var(--border-color);
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold;
+            transform: rotate(15deg);
+        }
+
+        .profile-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0px var(--border-color);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border: var(--border-width) solid var(--border-color);
+            object-fit: cover;
+            /* Imagem quadrada para manter o estilo brutalista */
+        }
+
+        .profile-info h1 {
+            font-size: 1.5rem;
+            line-height: 1;
+            margin-bottom: 5px;
+            background: var(--main-accent);
+            display: inline-block;
+            padding: 2px 5px; /* Marca texto */
+        }
+
+        /* Área de Destaque (Estilo Post-it) */
+        .highlight-box {
+            background: var(--second-accent);
+            border: var(--border-width) solid var(--border-color);
+            padding: 15px;
+            transform: rotate(-2deg); /* Levemente torto */
+            text-align: center;
+            box-shadow: 4px 4px 0px var(--border-color);
+            margin: 10px 0;
+        }
+        .highlight-box p { font-weight: 700; font-size: 1.1rem; }
+
+        /* Botões "Blocky" */
+        .link-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 18px 20px;
+            border: var(--border-width) solid var(--border-color);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--border-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.1s;
+        }
+
+        /* Cores diferentes para cada botão ao passar o mouse */
+        .link-btn:nth-child(1):hover { background: var(--third-accent); }
+        .link-btn:nth-child(2):hover { background: var(--main-accent); }
+        .link-btn:nth-child(3):hover { background: #55efc4; }
+        .link-btn:nth-child(4):hover { background: #fab1a0; }
+
+        .link-btn:active {
+            transform: translate(var(--shadow-offset), var(--shadow-offset));
+            box-shadow: 0px 0px 0px var(--border-color); /* Remove a sombra ao clicar */
+        }
+
+        .link-btn i { font-size: 1.3rem; }
+
+        /* Rodapé em formato de Tags */
+        .footer-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: #000;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .tag:hover { background: var(--main-accent); color: #000; transform: scale(1.1); }
+
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            ✨ NOVO VÍDEO DISPONÍVEL • 📌 CONFIRA O ÚLTIMO POST • 🎨 NOVIDADES NO PORTFÓLIO • 💜 OBRIGADA PELO APOIO • 
+            
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="profile-card">
+            <img src="Assets/DefaultUser.png" alt="Avatar" class="profile-img">
+            <div class="profile-info">
+                <h1>OLÁ, SOU A LUNA!</h1>
+                <p>Criadora Digital & Designer</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <p>👇 Confira minhas novidades!</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <a href="#" class="link-btn">
+                <span>MEU PORTFÓLIO</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            
+            <a href="#" class="link-btn">
+                <span>CANAL NO YOUTUBE</span>
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            <a href="#" class="link-btn">
+                <span>PLAYLIST NO SPOTIFY</span>
+                <i class="fab fa-spotify"></i>
+            </a>
+
+            <a href="#" class="link-btn">
+                <span>TIKTOK</span>
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+
+        <div class="footer-tags">
+            <a href="#" class="tag">INSTA</a>
+            <a href="#" class="tag">TWITTER</a>
+            <a href="#" class="tag">EMAIL</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px; padding: 20px 0; opacity: 0.7; font-size: 0.75rem; color: #000; font-weight: 500;">
+            Desenvolvido por <a href="https://efforedevelopment.com.br" target="_blank" style="color: #a29bfe; text-decoration: none; font-weight: 700;">Effore Development</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

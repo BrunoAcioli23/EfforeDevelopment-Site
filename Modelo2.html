@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Glass - Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Configurações do Vidro */
+            --glass-bg: rgba(255, 255, 255, 0.10); /* Mais transparente para destacar produtos */
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --text-color: #ffffff;
+            --card-radius: 20px; /* Bordas bem arredondadas */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            /* Gradiente de Fundo Animado (Estilo Aurora) */
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #4a1a53);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            min-height: 100vh;
+            color: var(--text-color);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+
+        /* Header da Loja */
+        .store-header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            /* Efeito vidro sutil no header */
+            padding: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--card-radius);
+            border: 1px solid var(--glass-border);
+            width: 100%;
+        }
+
+        .store-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.3);
+            padding: 5px; /* Espaço entre borda e logo */
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .store-header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .store-header p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* Área do Vídeo com Moldura de Vidro */
+        .video-frame {
+            width: 100%;
+            padding: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--card-radius);
+            border: 1px solid var(--glass-border);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px; /* Raio interno menor */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        }
+
+        /* Links de Produtos (Cards de Vidro) */
+        .link-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-card {
+            display: flex;
+            align-items: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px;
+            border-radius: var(--card-radius);
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de brilho ao passar o mouse */
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .thumb {
+            width: 75px;
+            height: 75px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-arrow {
+            padding-right: 10px;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+        
+        .product-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        /* Botões Secundários (Estilo Pílula) */
+        .secondary-actions {
+            margin-top: 35px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .pill-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            border-radius: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+
+        .pill-btn.whatsapp {
+            /* Gradiente vítreo verde para o WhatsApp */
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.4), rgba(37, 211, 102, 0.1));
+            border-color: rgba(37, 211, 102, 0.5);
+        }
+        
+        .pill-btn:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .pill-btn.whatsapp:hover {
+             background: linear-gradient(135deg, rgba(37, 211, 102, 0.6), rgba(37, 211, 102, 0.2));
+        }
+
+        /* Rodapé Social */
+        .socials {
+            margin-top: 40px;
+            display: flex;
+            gap: 25px;
+        }
+        .socials a {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+        .socials a:hover {
+            color: white;
+            transform: translateY(-3px);
+            text-shadow: 0 0 15px rgba(255,255,255,0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="store-header">
+            <img src="Assets/DefaultUser.png" alt="Logo Boutique" class="store-logo">
+            <h1>Seu Nome</h1>
+            <p>Elegância em cada detalhe.</p>
+        </header>
+
+        <div class="video-frame">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/8X9j4-vT3OQ?controls=0&rel=0&autoplay=1&mute=1&loop=1" title="Vídeo da Loja" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="link-list">
+            
+            <a href="#" class="product-card">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Produto" class="thumb">
+                <div class="card-info">
+                    <span class="card-title">Coleção Outono/Inverno</span>
+                    <span class="card-desc"><i class="fas fa-tag"></i> Lançamento exclusivo</span>
+                </div>
+                <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Produto" class="thumb">
+                <div class="card-info">
+                    <span class="card-title">Sapatos de Salto</span>
+                    <span class="card-desc" style="color: #ffd700; opacity: 1; font-weight: 600;">
+                        <i class="fas fa-percentage"></i> 40% OFF - Últimos pares
+                    </span>
+                </div>
+                <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Produto" class="thumb">
+                <div class="card-info">
+                    <span class="card-title">Bolsas de Couro</span>
+                    <span class="card-desc">Design italiano</span>
+                </div>
+                <div class="card-arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+        </div>
+
+        <div class="secondary-actions">
+            <a href="#" class="pill-btn whatsapp">
+                <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Atendimento no WhatsApp
+            </a>
+            <a href="#" class="pill-btn">
+                <i class="fas fa-box-open"></i> Política de Trocas
+            </a>
+        </div>
+
+        <div class="socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px; padding-top: 15px; opacity: 0.7; font-size: 0.75rem; color: rgba(255, 255, 255, 0.8);">
+            Desenvolvido por <a href="https://efforedevelopment.com.br" target="_blank" style="color: rgba(255, 255, 255, 0.95); text-decoration: none; font-weight: 500;">Effore Development</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

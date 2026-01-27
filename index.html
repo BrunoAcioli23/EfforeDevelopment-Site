@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effore Development | Soluções Digitais Sob Medida</title>
+    <meta name="description" content="Desenvolvimento Web, Inteligência Artificial e Soluções Digitais personalizadas para o seu negócio.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="Assets/LogoEfforeDevelopmentAbaSite.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="Assets/EfforeDevelopmentLogoReduzido.png" alt="Effore Development Logo">
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Início</a></li> 
+                    <li><a href="#services" class="nav-link">Serviços</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#contact" class="nav-link btn-contact">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="gradient-circle circle-1"></div>
+            <div class="gradient-circle circle-2"></div>
+            <div class="gradient-circle circle-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Transformamos</span>
+                        <span class="title-line highlight">Ideias</span>
+                        <span class="title-line">em Soluções Digitais</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Desenvolvimento Web • Inteligência Artificial • Softwares<br>
+                        Soluções digitais sob medida para impulsionar seu negócio
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">
+                            Iniciar Projeto
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#services" class="btn btn-secondary">
+                            Nossos Serviços
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon">💻</div>
+                        <div class="card-text">Desenvolvimento Web</div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-text">Inteligência Artificial</div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-text">Entrega Rapida</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">O QUE FAZEMOS</span>
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-description">
+                    Oferecemos soluções completas e personalizadas para transformar seu negócio digitalmente
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M8 8H40V40H8V8Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 18H40" stroke="#fa7608" stroke-width="2"/>
+                            <circle cx="14" cy="13" r="1.5" fill="#fa7608"/>
+                            <circle cx="20" cy="13" r="1.5" fill="#fa7608"/>
+                            <circle cx="26" cy="13" r="1.5" fill="#fa7608"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desenvolvimento Web</h3>
+                    <p class="service-description">
+                        Sites e aplicações web modernas, responsivas e otimizadas. Utilizamos as tecnologias mais recentes para garantir performance e escalabilidade.
+                    </p>
+                    <ul class="service-features">
+                        <li>Landing Pages</li>
+                        <li>E-commerce</li>
+                        <li>Web Apps</li>
+                        <li>PWAs</li>
+                    </ul>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="featured-badge">Popular</div>
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 24L24 34L44 24" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 34L24 44L44 34" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Inteligência Artificial</h3>
+                    <p class="service-description">
+                        Soluções de IA personalizadas para automatizar processos, analisar dados e criar experiências inteligentes que revolucionam seu negócio.
+                    </p>
+                    <ul class="service-features">
+                        <li>Machine Learning</li>
+                        <li>Chatbots IA</li>
+                        <li>Análise de Dados</li>
+                        <li>Automação</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="6" y="6" width="36" height="36" rx="4" stroke="#fa7608" stroke-width="2"/>
+                            <path d="M16 24L22 30L32 18" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Softwares Personalizados</h3>
+                    <p class="service-description">
+                        Desenvolvemos softwares sob medida para atender as necessidades específicas do seu negócio, com foco em usabilidade e eficiência.
+                    </p>
+                    <ul class="service-features">
+                        <li>Sistemas de Gestão</li>
+                        <li>APIs REST</li>
+                        <li>Integrações</li>
+                        <li>Dashboards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologias -->
+    <section class="technologies">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">TECNOLOGIAS</span>
+                <h2 class="section-title">Stack Moderno</h2>
+            </div>
+            
+            <div class="tech-slider">
+                <div class="tech-track">
+                    <div class="tech-item">React</div>
+                    <div class="tech-item">Vue.js</div>
+                    <div class="tech-item">Node.js</div>
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">TensorFlow</div>
+                    <div class="tech-item">PostgreSQL</div>
+                    <div class="tech-item">MongoDB</div>
+                    <div class="tech-item">AWS</div>
+                    <div class="tech-item">Docker</div>
+                    <div class="tech-item">React</div>
+                    <div class="tech-item">Vue.js</div>
+                    <div class="tech-item">Node.js</div>
+                    <div class="tech-item">HTML</div>
+                    <div class="tech-item">CSS</div>
+                    <div class="tech-item">JavaScript</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PROJETOS PRINCIPAIS</span>
+                <h2 class="section-title">Cases de Sucesso</h2>
+                <p class="section-description">
+                    Conheça alguns dos nossos principais projetos desenvolvidos
+                </p>
+            </div>
+            
+            <div class="portfolio-grid portfolio-grid-mixed">
+                <!-- Mockup de Celular com Swiper -->
+                <div class="portfolio-item portfolio-phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="phone-swiper">
+                                <div class="phone-slides">
+                                    <!-- Adicione suas imagens de apps aqui -->
+                                    <div class="phone-slide">
+                                        <img src="Assets/teste.jpeg" alt="App Mobile 1">
+                                        <div class="slide-caption">
+                                        </div>
+                                    </div>
+                                    <div class="phone-slide">
+                                        <img src="Assets/Teste2.jpg" alt="App Mobile 2">
+                                        <div class="slide-caption">
+                                        </div>
+                                    </div>
+                                    <div class="phone-slide">
+                                        <img src="Assets/Teste3.jpg" alt="App Mobile 3">
+                                        <div class="slide-caption">
+                                        </div>
+                                    </div>
+                                    <div class="phone-slide">
+                                        <img src="Assets/Teste4.jpg" alt="App Mobile 4">
+                                        <div class="slide-caption">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <div class="phone-home-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="Assets/SGE.jpg" alt="Sistema de Gestão Industrial">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Sistema de Gestão de Estoque (SGE)</h3>
+                                <p>ERP personalizado para indústria</p>
+                                <span class="portfolio-tag">Software Personalizado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <video autoplay loop muted playsinline>
+                            <source src="Assets/E-CommerceVideo.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>E-Commerce</h3>
+                                <p>Possui sistema ERP integrado</p>
+                                <span class="portfolio-tag">Desenvolvimento Web</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="portfolio-cta-section">
+                <a href="portfolio.html" class="btn btn-primary btn-large">
+                    Navegar por alguns exemplos
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <p class="portfolio-count">+20 projetos desenvolvidos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-tag">SOBRE NÓS</span>
+                    <h2 class="section-title">Inovação e Excelência</h2>
+                    <p class="about-description">
+                        Somos uma software house especializada em criar soluções digitais que transformam negócios. 
+                        Com expertise em desenvolvimento web, inteligência artificial e softwares personalizados, 
+                        entregamos projetos que superam expectativas.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="20">0</div>
+                            <div class="stat-label">Projetos Entregues</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="98">0</div>
+                            <div class="stat-label">% Satisfação</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="24">0</div>
+                            <div class="stat-label">Suporte 24/7</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card">
+                        <div class="code-snippet">
+                            <div class="code-line"><span class="keyword">const</span> <span class="variable">effore</span> = {</div>
+                            <div class="code-line">  <span class="property">mission</span>: <span class="string">'Inovar'</span>,</div>
+                            <div class="code-line">  <span class="property">values</span>: [<span class="string">'Qualidade'</span>, <span class="string">'Agilidade'</span>],</div>
+                            <div class="code-line">  <span class="property">tech</span>: <span class="string">'Cutting Edge'</span></div>
+                            <div class="code-line">}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FALE CONOSCO</span>
+                <h2 class="section-title">Vamos Conversar?</h2>
+                <p class="section-description">
+                    Conte-nos sobre seu projeto e vamos criar algo incrível juntos
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        Enviar Mensagem
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+                
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 8L10.89 13.26C11.5 13.67 12.5 13.67 13.11 13.26L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>E-mail</h3>
+                        <p>contato@efforedevelopment.com</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Telefone</h3>
+                        <p>+55 (11) 9999-9999</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Localização</h3>
+                        <p>São Paulo, Brasil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development Logo" class="footer-logo">
+                    <p class="footer-text">
+                        Transformando ideias em soluções digitais inovadoras
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S.02 4.881.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v12h5V8zm7.982 0H8.014v12h4.969v-6.293c0-4.648 6.015-5.031 6.015 0V20H24v-7.808c0-7.848-8.905-7.564-11.018-3.7V8z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.165 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0C7.284 0 6.944.012 5.877.06 4.813.11 4.086.278 3.45.525a4.902 4.902 0 00-1.772 1.153A4.902 4.902 0 00.525 3.45C.278 4.086.109 4.813.06 5.877.012 6.944 0 7.284 0 10s.012 3.056.06 4.123c.05 1.064.218 1.791.465 2.427a4.902 4.902 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.636.247 1.363.415 2.427.465C6.944 19.988 7.284 20 10 20s3.056-.012 4.123-.06c1.064-.05 1.791-.218 2.427-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.247-.636.415-1.363.465-2.427.048-1.067.06-1.407.06-4.123s-.012-3.056-.06-4.123c-.05-1.064-.218-1.791-.465-2.427a4.902 4.902 0 00-1.153-1.772A4.902 4.902 0 0016.55.525C15.914.278 15.187.109 14.123.06 13.056.012 12.716 0 10 0zm0 1.802c2.67 0 2.987.01 4.041.059.975.045 1.504.207 1.857.344.467.182.8.398 1.15.748.35.35.566.683.748 1.15.137.353.3.882.344 1.857.048 1.054.058 1.37.058 4.04 0 2.671-.01 2.987-.058 4.042-.045.975-.207 1.504-.344 1.857a3.097 3.097 0 01-.748 1.15c-.35.35-.683.566-1.15.748-.353.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-.975-.045-1.504-.207-1.857-.344a3.097 3.097 0 01-1.15-.748 3.098 3.098 0 01-.748-1.15c-.137-.353-.3-.882-.344-1.857-.048-1.055-.058-1.37-.058-4.041 0-2.67.01-2.986.058-4.04.045-.975.207-1.504.344-1.857.182-.467.398-.8.748-1.15.35-.35.683-.566 1.15-.748.353-.137.882-.3 1.857-.344 1.054-.048 1.37-.058 4.04-.058zM10 13.333A3.333 3.333 0 1110 6.667a3.333 3.333 0 010 6.666zm0-8.468a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm6.538-.203a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Serviços</h4>
+                        <ul>
+                            <li><a href="#services">Desenvolvimento Web</a></li>
+                            <li><a href="#services">Inteligência Artificial</a></li>
+                            <li><a href="#services">Softwares Personalizados</a></li>
+                            <li><a href="#services">Consultoria</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="#about">Sobre Nós</a></li>
+                            <li><a href="portfolio.html">Portfólio</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                            <li><a href="#">Carreiras</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacidade</a></li>
+                            <li><a href="#">Termos de Uso</a></li>
+                            <li><a href="#">Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Effore Development. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

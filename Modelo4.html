@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Negócio Local</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #ff6b6b; /* Cor vibrante (Coral/Vermelho suave) */
+            --secondary-color: #ff8787;
+            --bg-color: #fff5f5; /* Fundo levemente rosado/quente */
+            --card-bg: #ffffff;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --success: #20bf6b; /* Verde para "Aberto" */
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            /* Padrão de fundo sutil (bolinhas) */
+            background-image: radial-gradient(var(--secondary-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Banner de Topo */
+        .banner {
+            width: 100%;
+            height: 140px;
+            background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 0 20px 40px 20px;
+            margin-top: -60px; /* Sobe no banner */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Perfil com Status */
+        .profile-wrapper {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 5px solid var(--card-bg);
+            object-fit: cover;
+            background: #fff;
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: var(--success);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 3px solid var(--card-bg);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Animação do pontinho verde */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        .biz-info {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .biz-info h1 { font-size: 1.6rem; color: var(--text-dark); margin-bottom: 5px; }
+        .biz-info p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* Card de Avaliação (Prova Social) */
+        .review-card {
+            background: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .stars { color: #f1c40f; }
+
+        /* Botão Principal Pulsante */
+        .cta-main {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 18px;
+            border-radius: var(--radius);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+            margin-bottom: 20px;
+            animation: floatBtn 3s ease-in-out infinite;
+        }
+
+        @keyframes floatBtn {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Accordion de Informações (Endereço e Horário) */
+        .info-card {
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            background-color: #f1f2f6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .info-text strong { display: block; font-size: 0.9rem; }
+        .info-text span { font-size: 0.85rem; color: var(--text-light); }
+
+        /* Lista de Links Secundários */
+        .link-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .simple-link {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .simple-link:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer-socials {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+        .footer-socials a {
+            width: 40px; height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .footer-socials a:hover {
+            transform: scale(1.1);
+            color: var(--primary-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="banner"></div>
+
+    <div class="container">
+        
+        <div class="profile-wrapper">
+            <img src="Assets/DefaultUser.png" alt="Foto Perfil" class="profile-img">
+            
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Aberto
+            </div>
+        </div>
+
+        <div class="biz-info">
+            <h1>Doceria da Ana</h1>
+            <p>Bolos caseiros, cafés e doces artesanais.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>4.9 no Google (120 avaliações)</span>
+        </div>
+
+        <a href="#" class="cta-main">
+            <i class="fab fa-whatsapp"></i>
+            Fazer Pedido Agora
+        </a>
+
+        <div class="info-card">
+            <a href="#" class="info-row">
+                <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="info-text">
+                    <strong>Rua das Flores, 123</strong>
+                    <span>Centro - São Paulo, SP</span>
+                </div>
+            </a>
+            
+            <div class="info-row">
+                <div class="icon-box"><i class="fas fa-clock"></i></div>
+                <div class="info-text">
+                    <strong>Seg a Sex: 09h às 18h</strong>
+                    <span>Sáb: 09h às 13h</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="link-list">
+            <a href="#" class="simple-link">
+                <span>🎂 Ver Cardápio Digital</span>
+                <i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i>
+            </a>
+            <a href="#" class="simple-link">
+                <span>🛵 Política de Entrega</span>
+                <i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i>
+            </a>
+        </div>
+
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px; padding: 20px 0; opacity: 0.6; font-size: 0.75rem; color: #636e72;">
+            Desenvolvido por <a href="https://efforedevelopment.com.br" target="_blank" style="color: #ff6b6b; text-decoration: none; font-weight: 500;">Effore Development</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
