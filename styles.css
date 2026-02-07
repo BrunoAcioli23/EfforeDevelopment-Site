@@ -648,6 +648,10 @@ section {
 }
 
 /* Portfolio Section */
+.portfolio {
+    padding: 6rem 0;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1330,29 +1334,34 @@ section {
 
     /* Portfolio Grid Responsivo */
     .portfolio-grid-mixed {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .portfolio-phone-mockup {
         grid-row: span 1;
-        min-height: 450px;
-        padding: 1.5rem;
+        min-height: 500px;
+        padding: 2rem 1rem;
     }
 
     .phone-frame {
-        width: 220px;
-        height: 460px;
-        border-radius: 35px;
-        padding: 10px;
+        width: 280px;
+        height: 580px;
+        border-radius: 40px;
+        padding: 12px;
     }
 
     .phone-notch {
-        width: 100px;
-        height: 24px;
+        width: 110px;
+        height: 26px;
     }
 
     .phone-screen {
-        border-radius: 28px;
+        border-radius: 32px;
+    }
+
+    .portfolio-item {
+        aspect-ratio: 16/10;
     }
 
     .about-content {
@@ -1383,7 +1392,7 @@ section {
 
 @media (max-width: 600px) {
     .container {
-        padding: 0 1.5rem;
+        padding: 0 1rem;
     }
 
     .hero-title {
@@ -1409,6 +1418,182 @@ section {
 
     .stat-number {
         font-size: 2.5rem;
+    }
+
+    /* Portfolio Mobile Específico */
+    .portfolio {
+        padding: 4rem 0;
+    }
+
+    .portfolio-grid-mixed {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .portfolio-phone-mockup {
+        min-height: 450px;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .phone-frame {
+        width: 260px;
+        height: 540px;
+        border-radius: 38px;
+        padding: 10px;
+    }
+
+    .phone-notch {
+        width: 100px;
+        height: 24px;
+    }
+
+    .phone-screen {
+        border-radius: 30px;
+    }
+
+    .portfolio-item {
+        aspect-ratio: 4/3;
+    }
+
+    .portfolio-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .portfolio-info p {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .portfolio-tag {
+        padding: 0.4rem 0.85rem;
+        font-size: 0.8rem;
+    }
+
+    .portfolio-cta-section {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .btn-large {
+        padding: 1rem 1.75rem;
+        font-size: 1rem;
+    }
+
+    .portfolio-count {
+        font-size: 0.9rem;
+    }
+
+    /* Melhor interação touch em dispositivos móveis */
+    .portfolio-item {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    /* Overlay visível por padrão em mobile para melhor UX */
+    .portfolio-item:not(.portfolio-phone-mockup) .portfolio-overlay {
+        opacity: 0.85;
+        background: rgba(33, 42, 50, 0.9);
+    }
+
+    .portfolio-item:not(.portfolio-phone-mockup) .portfolio-info {
+        transform: translateY(0);
+    }
+
+    /* Efeito tap para mobile */
+    .portfolio-item:not(.portfolio-phone-mockup):active .portfolio-overlay {
+        opacity: 1;
+    }
+}
+
+/* Media Query para celulares extra pequenos */
+@media (max-width: 480px) {
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-tag {
+        font-size: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .section-description {
+        font-size: 0.95rem;
+    }
+
+    /* Portfolio em celulares muito pequenos */
+    .portfolio-grid-mixed {
+        gap: 1.25rem;
+    }
+
+    .portfolio-phone-mockup {
+        min-height: 400px;
+        padding: 1rem 0;
+    }
+
+    .phone-frame {
+        width: 240px;
+        height: 500px;
+        border-radius: 36px;
+        padding: 9px;
+    }
+
+    .phone-notch {
+        width: 90px;
+        height: 22px;
+        border-radius: 0 0 18px 18px;
+    }
+
+    .phone-screen {
+        border-radius: 28px;
+    }
+
+    .portfolio-item {
+        aspect-ratio: 1/1;
+    }
+
+    .portfolio-overlay {
+        padding: 1.25rem;
+    }
+
+    .portfolio-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .portfolio-info p {
+        font-size: 0.85rem;
+    }
+
+    .portfolio-tag {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .portfolio-cta-section {
+        margin-top: 1.5rem;
+    }
+
+    .btn-large {
+        width: 100%;
+        padding: 0.95rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Ajustes para touch em mobile */
+    .portfolio-item {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Em telas muito pequenas, mostra o overlay por padrão no mobile */
+    .portfolio-overlay {
+        opacity: 0.9;
+        background: rgba(33, 42, 50, 0.85);
+    }
+    
+    .portfolio-info {
+        transform: translateY(0);
     }
 }
 
