@@ -18,6 +18,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
 }
 
 body {
@@ -26,12 +28,15 @@ body {
     color: var(--black);
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100vw;
 }
 
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
+    box-sizing: border-box;
 }
 
 /* Navbar */
@@ -650,6 +655,7 @@ section {
 /* Portfolio Section */
 .portfolio {
     padding: 6rem 0;
+    overflow-x: hidden;
 }
 
 .portfolio-grid {
@@ -691,6 +697,7 @@ section {
     min-height: 500px;
     box-shadow: none;
     transition: all 0.3 ease;
+    overflow: visible;
 }
 
 .portfolio-phone-mockup:hover {
@@ -1425,6 +1432,11 @@ section {
         padding: 4rem 0;
     }
 
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     .portfolio-grid-mixed {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1432,13 +1444,13 @@ section {
 
     .portfolio-phone-mockup {
         min-height: 450px;
-        padding: 1.5rem 0.5rem;
+        padding: 1.5rem 0;
     }
 
     .phone-frame {
-        width: 260px;
-        height: 540px;
-        border-radius: 38px;
+        width: 240px;
+        height: 500px;
+        border-radius: 36px;
         padding: 10px;
     }
 
@@ -1524,30 +1536,57 @@ section {
     }
 
     /* Portfolio em celulares muito pequenos */
+    .portfolio-grid,
     .portfolio-grid-mixed {
+        grid-template-columns: 1fr;
         gap: 1.25rem;
     }
 
     .portfolio-phone-mockup {
-        min-height: 400px;
+        min-height: 380px;
         padding: 1rem 0;
     }
 
     .phone-frame {
-        width: 240px;
-        height: 500px;
-        border-radius: 36px;
-        padding: 9px;
+        width: 200px;
+        height: 420px;
+        border-radius: 32px;
+        padding: 8px;
     }
 
     .phone-notch {
-        width: 90px;
-        height: 22px;
-        border-radius: 0 0 18px 18px;
+        width: 80px;
+        height: 20px;
+        border-radius: 0 0 16px 16px;
+    }
+
+    .phone-notch::before {
+        width: 50px;
+        height: 5px;
+    }
+
+    .phone-notch::after {
+        width: 8px;
+        height: 8px;
+        right: 15px;
     }
 
     .phone-screen {
-        border-radius: 28px;
+        border-radius: 25px;
+    }
+
+    .phone-home-bar {
+        width: 100px;
+        height: 3px;
+    }
+
+    .phone-dots .dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .phone-dots .dot.active {
+        width: 15px;
     }
 
     .portfolio-item {
@@ -1594,6 +1633,58 @@ section {
     
     .portfolio-info {
         transform: translateY(0);
+    }
+}
+
+/* Media Query para celulares extra pequenos */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .portfolio-grid,
+    .portfolio-grid-mixed {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .phone-frame {
+        width: 180px;
+        height: 380px;
+        border-radius: 30px;
+        padding: 7px;
+    }
+
+    .phone-notch {
+        width: 70px;
+        height: 18px;
+    }
+
+    .phone-notch::before {
+        width: 45px;
+        height: 4px;
+    }
+
+    .phone-screen {
+        border-radius: 23px;
+    }
+
+    .phone-home-bar {
+        width: 90px;
+        height: 3px;
+    }
+
+    .phone-dots .dot {
+        width: 4px;
+        height: 4px;
+    }
+
+    .phone-dots .dot.active {
+        width: 12px;
+    }
+
+    .portfolio-phone-mockup {
+        min-height: 350px;
     }
 }
 
