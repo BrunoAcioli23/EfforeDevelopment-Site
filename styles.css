@@ -1529,7 +1529,7 @@ section {
     }
 
     .portfolio-phone-mockup {
-        min-height: 400px;
+        min-height: 300px;
         padding: 1rem 0;
     }
 
@@ -1645,7 +1645,7 @@ section {
     padding: 3rem 0;
     background: var(--light-gray);
     position: sticky;
-    top: 80px;
+    top: 65px;
     z-index: 999;
     box-shadow: 0 4px 20px var(--shadow);
 }
