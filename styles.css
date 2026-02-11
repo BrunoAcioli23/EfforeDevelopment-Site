@@ -143,7 +143,7 @@ body {
 .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
     background: none;
     border: none;
     cursor: pointer;
@@ -1361,7 +1361,7 @@ section {
     }
 
     .portfolio-item {
-        aspect-ratio: 16/10;
+        aspect-ratio: 10/10;
     }
 
     .about-content {
@@ -1452,7 +1452,7 @@ section {
     }
 
     .portfolio-item {
-        aspect-ratio: 4/3;
+        aspect-ratio: 3/3;
     }
 
     .portfolio-info h3 {
@@ -2290,7 +2290,7 @@ section {
 
 @media (max-width: 600px) {
     .portfolio-filters-section {
-        top: 70px;
+        top: 65px;
         padding: 2rem 0;
     }
 
