@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TV Sem Limites Oficial</title>
+  <meta name="description" content="Conheça os planos da TV Sem Limites Oficial e fale conosco pelo WhatsApp." />
+  <style>
+    :root{
+      --bg:#07070b;
+      --bg2:#101018;
+      --card:#11111a;
+      --purple:#8d39ff;
+      --purple2:#b76cff;
+      --gold:#f2c55c;
+      --text:#f7f4ff;
+      --muted:#b8b1c5;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:
+      radial-gradient(circle at 20% 0%, rgba(126,47,255,.18), transparent 32rem),
+      radial-gradient(circle at 85% 25%, rgba(242,197,92,.10), transparent 28rem),
+      var(--bg);
+      color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:10;background:rgba(7,7,11,.78);
+      backdrop-filter:blur(16px);border-bottom:1px solid var(--line)
+    }
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid rgba(242,197,92,.55)}
+    .brand span em{font-style:normal;color:var(--gold)}
+    .navlinks{display:flex;gap:22px;color:var(--muted);font-size:.92rem}
+    .navlinks a:hover{color:white}
+    .hero{padding:72px 0 48px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:.82rem;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}
+    h1{font-size:clamp(2.5rem,6vw,5.2rem);line-height:.98;margin:18px 0 20px;letter-spacing:-2.5px}
+    h1 .purple{color:var(--purple2)}
+    h1 .gold{color:var(--gold)}
+    .lead{font-size:1.08rem;line-height:1.7;color:var(--muted);max-width:620px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:15px 23px;border-radius:14px;font-weight:800;transition:.2s;
+      border:1px solid var(--line)
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .primary{background:linear-gradient(135deg,#6f20e9,var(--purple2));box-shadow:0 10px 35px rgba(141,57,255,.35)}
+    .secondary{background:#11111a;color:#eee}
+    .hero-art{position:relative}
+    .screen{
+      min-height:410px;border-radius:28px;padding:22px;
+      background:linear-gradient(145deg,#171524,#09090e 65%);
+      border:1px solid rgba(183,108,255,.30);box-shadow:var(--shadow)
+    }
+    .screen-top{display:flex;justify-content:space-between;align-items:center;color:#ddd;font-size:.8rem}
+    .lights{display:flex;gap:6px}.lights i{width:9px;height:9px;border-radius:50%;background:#555}.lights i:nth-child(2){background:var(--purple)}.lights i:nth-child(3){background:var(--gold)}
+    .visual{
+      margin-top:20px;height:315px;border-radius:20px;overflow:hidden;position:relative;
+      background:linear-gradient(135deg,rgba(87,25,175,.85),rgba(10,10,20,.9)),
+      url("logo.jpg") center/cover no-repeat;
+    }
+    .visual:after{content:"FILMES • SÉRIES • CANAIS • ESPORTES";position:absolute;inset:auto 0 28px;text-align:center;font-weight:900;letter-spacing:1.5px;font-size:clamp(1rem,2vw,1.5rem);text-shadow:0 3px 16px #000}
+    .floating{position:absolute;padding:13px 16px;background:rgba(15,14,23,.92);border:1px solid rgba(242,197,92,.32);border-radius:14px;box-shadow:var(--shadow);font-size:.88rem}
+    .f1{right:-18px;top:45px}.f2{left:-25px;bottom:22px;border-color:rgba(183,108,255,.35)}
+    .stats{padding:22px 0 56px}
+    .statsin{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .stat{padding:20px;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:18px}
+    .stat b{display:block;font-size:1.3rem;color:var(--gold)}.stat span{font-size:.85rem;color:var(--muted)}
+    section{padding:70px 0;border-top:1px solid var(--line)}
+    .section-title{text-align:center;margin-bottom:40px}
+    .section-title h2{font-size:clamp(1.8rem,4vw,3rem);margin:0 0 12px}
+    .section-title p{color:var(--muted);margin:0}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .feature{background:linear-gradient(180deg,#12111b,#0d0d13);border:1px solid var(--line);border-radius:20px;padding:25px}
+    .icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(141,57,255,.14);border:1px solid rgba(183,108,255,.25);font-size:1.35rem}
+    .feature h3{margin:18px 0 8px}.feature p{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0}
+    .demo{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .demo-card{min-height:260px;padding:20px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,#181322,#0e0d14);display:flex;flex-direction:column;justify-content:flex-end}
+    .play{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--purple2);font-size:1.2rem;margin-bottom:auto;background:rgba(0,0,0,.25)}
+    .demo-card h3{margin:0 0 8px}.demo-card p{color:var(--muted);margin:0;font-size:.9rem}
+    .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+    .plan{background:linear-gradient(180deg,#12111b,#09090e);border:1px solid rgba(183,108,255,.34);border-radius:22px;padding:26px;position:relative}
+    .plan.best{border-color:var(--gold);box-shadow:0 0 0 1px rgba(242,197,92,.15),0 18px 60px rgba(242,197,92,.09)}
+    .tag{position:absolute;right:15px;top:-13px;background:var(--gold);color:#241b08;font-size:.7rem;padding:7px 11px;border-radius:999px;font-weight:900}
+    .plan h3{margin:0;color:#e8e2f5}.price{font-size:2.65rem;font-weight:900;margin:15px 0 2px}.price small{font-size:.9rem;color:var(--muted);font-weight:500}.period{color:var(--muted);font-size:.85rem}
+    .plan ul{padding:0;margin:22px 0;list-style:none;color:#d7d2df;font-size:.92rem}.plan li{margin:11px 0}.plan li:before{content:"✓";color:var(--gold);font-weight:900;margin-right:8px}
+    .plan .btn{width:100%;padding:13px}.goldbtn{background:linear-gradient(135deg,#b78422,#f2c55c);color:#231908}
+    .why{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .why .item{text-align:center;padding:18px 10px}.why b{display:block;margin:10px 0 7px}.why span{color:var(--muted);font-size:.82rem;line-height:1.45}
+    .cta{padding:45px;border-radius:28px;background:linear-gradient(110deg,rgba(141,57,255,.22),rgba(242,197,92,.11));border:1px solid rgba(242,197,92,.25);display:flex;justify-content:space-between;align-items:center;gap:25px}
+    .cta h2{margin:0 0 8px;font-size:clamp(1.7rem,4vw,2.8rem)}.cta p{margin:0;color:var(--muted)}
+    footer{text-align:center;padding:32px 0;color:#827b8f;font-size:.82rem}
+    .note{font-size:.78rem;color:#827b8f;text-align:center;margin-top:22px}
+    @media(max-width:900px){
+      .navlinks{display:none}.hero-grid{grid-template-columns:1fr}.hero{padding-top:45px}
+      .features{grid-template-columns:repeat(2,1fr)}.plans{grid-template-columns:repeat(2,1fr)}
+      .why{grid-template-columns:repeat(3,1fr)}.demo{grid-template-columns:1fr 1fr}
+      .statsin{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      h1{letter-spacing:-1.5px}.hero{padding-bottom:28px}.screen{min-height:340px}.visual{height:250px}
+      .features,.plans,.demo{grid-template-columns:1fr}.why{grid-template-columns:1fr 1fr}
+      .cta{padding:30px;flex-direction:column;align-items:stretch;text-align:center}
+      .f1{right:-8px}.f2{left:-8px}.actions .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container navin">
+      <a class="brand" href="#inicio"><img src="logo.jpg" alt="TV Sem Limites"><span>TV SEM LIMITES <em>OFICIAL</em></span></a>
+      <div class="navlinks"><a href="#conteudos">Conteúdos</a><a href="#planos">Planos</a><a href="#vantagens">Vantagens</a></div>
+      <a class="btn primary" href="https://wa.link/ph64tu" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> ENTRETENIMENTO EM UM SÓ LUGAR</div>
+          <h1>Mais diversão.<br><span class="purple">Mais conteúdo.</span><br><span class="gold">Sem complicação.</span></h1>
+          <p class="lead">Conheça a <b>TV Sem Limites Oficial</b> e encontre opções de entretenimento para aproveitar no seu dia a dia.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://wa.link/ph64tu" target="_blank" rel="noopener">💬 QUERO SABER MAIS</a>
+            <a class="btn secondary" href="#planos">VER PLANOS ↓</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="screen">
+            <div class="screen-top"><span>TV Sem Limites</span><span class="lights"><i></i><i></i><i></i></span></div>
+            <div class="visual"></div>
+          </div>
+          <div class="floating f1">🍿 <b>Conteúdos para curtir</b></div>
+          <div class="floating f2">📱 <b>Atendimento pelo WhatsApp</b></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container stats">
+      <div class="statsin">
+        <div class="stat"><b>🎬 Filmes</b><span>Opções para diferentes gostos</span></div>
+        <div class="stat"><b>📺 Séries</b><span>Histórias para maratonar</span></div>
+        <div class="stat"><b>📡 Canais</b><span>Conteúdo para o dia a dia</span></div>
+        <div class="stat"><b>⚽ Esportes</b><span>Programação esportiva</span></div>
+      </div>
+    </div>
+
+    <section id="conteudos">
+      <div class="container">
+        <div class="section-title">
+          <h2>O que você encontra por aqui? 🍿</h2>
+          <p>Entretenimento reunido em uma experiência simples e prática.</p>
+        </div>
+        <div class="features">
+          <article class="feature"><div class="icon">🎬</div><h3>Filmes</h3><p>Descubra títulos e opções para aproveitar seu tempo livre.</p></article>
+          <article class="feature"><div class="icon">📺</div><h3>Séries</h3><p>Produções para quem gosta de acompanhar histórias e temporadas.</p></article>
+          <article class="feature"><div class="icon">📡</div><h3>Canais</h3><p>Opções de programação para diferentes momentos do dia.</p></article>
+          <article class="feature"><div class="icon">⚽</div><h3>Esportes</h3><p>Conteúdos esportivos para quem gosta de acompanhar competições.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Veja como é simples 👀</h2>
+          <p>Aqui você pode adicionar depois vídeos reais demonstrando o aplicativo.</p>
+        </div>
+        <div class="demo">
+          <div class="demo-card"><div class="play">▶</div><h3>Conheça o app</h3><p>Adicione um vídeo mostrando a navegação.</p></div>
+          <div class="demo-card"><div class="play">▶</div><h3>Filmes e séries</h3><p>Mostre um pouco da experiência visual do aplicativo.</p></div>
+          <div class="demo-card"><div class="play">▶</div><h3>Como acessar</h3><p>Explique de forma rápida como funciona o atendimento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos">
+      <div class="container">
+        <div class="section-title">
+          <h2>Escolha o seu plano 💰</h2>
+          <p>Fale conosco pelo WhatsApp para tirar dúvidas e solicitar mais informações.</p>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>MENSAL</h3><div class="price">R$ 35<small>,00</small></div><div class="period">por mês</div>
+            <ul><li>Acesso ao serviço</li><li>Conteúdos disponíveis</li><li>Suporte pelo WhatsApp</li></ul>
+            <a class="btn primary" href="https://wa.link/ph64tu" target="_blank" rel="noopener">ESCOLHER</a>
+          </article>
+          <article class="plan">
+            <h3>TRIMESTRAL</h3><div class="price">R$ 90<small>,00</small></div><div class="period">a cada 3 meses</div>
+            <ul><li>Acesso ao serviço</li><li>Conteúdos disponíveis</li><li>Suporte pelo WhatsApp</li></ul>
+            <a class="btn primary" href="https://wa.link/ph64tu" target="_blank" rel="noopener">ESCOLHER</a>
+          </article>
+          <article class="plan">
+            <h3>SEMESTRAL</h3><div class="price">R$ 150<small>,00</small></div><div class="period">a cada 6 meses</div>
+            <ul><li>Acesso ao serviço</li><li>Conteúdos disponíveis</li><li>Suporte pelo WhatsApp</li></ul>
+            <a class="btn primary" href="https://wa.link/ph64tu" target="_blank" rel="noopener">ESCOLHER</a>
+          </article>
+          <article class="plan best">
+            <div class="tag">MELHOR VALOR</div>
+            <h3>ANUAL ⭐</h3><div class="price">R$ 250<small>,00</small></div><div class="period">por ano</div>
+            <ul><li>Acesso ao serviço</li><li>Conteúdos disponíveis</li><li>Suporte pelo WhatsApp</li></ul>
+            <a class="btn goldbtn" href="https://wa.link/ph64tu" target="_blank" rel="noopener">QUERO ESTE PLANO</a>
+          </article>
+        </div>
+        <p class="note">Catálogo, disponibilidade e condições podem variar. Confirme os detalhes diretamente no atendimento.</p>
+      </div>
+    </section>
+
+    <section id="vantagens">
+      <div class="container">
+        <div class="section-title"><h2>Por que escolher a TV Sem Limites?</h2><p>Uma experiência pensada para ser simples do início ao atendimento.</p></div>
+        <div class="why">
+          <div class="item"><div class="icon" style="margin:auto">✨</div><b>Praticidade</b><span>Informações reunidas em um só lugar.</span></div>
+          <div class="item"><div class="icon" style="margin:auto">📱</div><b>Atendimento</b><span>Fale com a equipe pelo WhatsApp.</span></div>
+          <div class="item"><div class="icon" style="margin:auto">🖥️</div><b>Experiência digital</b><span>Conheça as opções disponíveis.</span></div>
+          <div class="item"><div class="icon" style="margin:auto">⚡</div><b>Agilidade</b><span>Contato rápido para tirar dúvidas.</span></div>
+          <div class="item"><div class="icon" style="margin:auto">💬</div><b>Suporte</b><span>Conte com o atendimento quando precisar.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div><h2>Pronto para saber mais? <span style="color:var(--gold)">🍿</span></h2><p>Clique no botão e fale agora mesmo com nossa equipe.</p></div>
+          <a class="btn primary" href="https://wa.link/ph64tu" target="_blank" rel="noopener">💬 QUERO FALAR NO WHATSAPP</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 TV Sem Limites Oficial • Todos os direitos reservados.</footer>
+</body>
+</html>

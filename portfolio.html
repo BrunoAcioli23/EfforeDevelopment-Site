@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Effore Development - Nossos Projetos</title>
     <meta name="description" content="Conheça todos os projetos desenvolvidos pela Effore Development. Cases de sucesso em Desenvolvimento Web, IA e Software Personalizado.">
+    <link rel="canonical" href="https://efforedevelopment.com.br/portfolio.html">
+
+    <!-- Open Graph / redes sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Effore Development">
+    <meta property="og:title" content="Portfólio | Effore Development">
+    <meta property="og:description" content="Cases em Desenvolvimento Web, Software Personalizado e Inteligência Artificial: e-commerce com ERP, sistemas de gestão e catálogos digitais.">
+    <meta property="og:url" content="https://efforedevelopment.com.br/portfolio.html">
+    <meta property="og:image" content="https://efforedevelopment.com.br/Assets/E-CommerceKids.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +33,7 @@
                         <img src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development Logo">
                     </a>
                 </div>
-                <button class="menu-toggle" id="menuToggle">
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -58,18 +70,209 @@
     <!-- Filtros de Portfólio -->
     <section class="portfolio-filters-section">
         <div class="container">
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="web">Desenvolvimento Web</button>
-                <button class="filter-btn" data-filter="ai">Inteligência Artificial</button>
-                <button class="filter-btn" data-filter="software">Software Personalizado</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
+            <div class="portfolio-filters" role="group" aria-label="Filtrar projetos por categoria">
+                <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">
+                    Todos <span class="filter-count" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">
+                    Desenvolvimento Web <span class="filter-count" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">
+                    Inteligência Artificial <span class="filter-count" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="software" aria-pressed="false">
+                    Software Personalizado <span class="filter-count" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="filter-btn" data-filter="mobile" aria-pressed="false">
+                    Mobile <span class="filter-count" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Projetos -->
+    <section class="portfolio-full" id="projetos">
+        <div class="container">
+            <p class="portfolio-result-count" role="status" aria-live="polite"></p>
+
+            <div class="portfolio-grid-full">
+                <!-- Empório Kids -->
+                <article class="portfolio-item-full" data-category="web">
+                    <div class="portfolio-image-full">
+                        <img src="Assets/E-CommerceKids.png" alt="Página inicial do e-commerce Empório Kids" loading="lazy" decoding="async">
+                        <div class="portfolio-overlay-full">
+                            <div class="portfolio-info-full">
+                                <span class="portfolio-category">Desenvolvimento Web</span>
+                                <h3>Empório Kids — E-commerce</h3>
+                                <p>Loja completa de moda infantil com vitrine por categoria, busca de produtos, carrinho, área do cliente e ERP integrado ao estoque.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">E-commerce</span>
+                                    <span class="tag">ERP integrado</span>
+                                    <span class="tag">Pagamentos</span>
+                                    <span class="tag">Responsivo</span>
+                                </div>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <strong>ERP</strong>
+                                        <span>Estoque sincronizado</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>100%</strong>
+                                        <span>Responsivo</span>
+                                    </div>
+                                </div>
+                                <a href="#case-ecommerce" class="portfolio-link">
+                                    Ver o projeto em vídeo
+                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SGE -->
+                <article class="portfolio-item-full" data-category="software">
+                    <div class="portfolio-image-full">
+                        <img src="Assets/SGE.jpg" alt="Dashboard do Sistema de Gestão de Estoque com indicadores e gráficos de vendas" loading="lazy" decoding="async">
+                        <div class="portfolio-overlay-full">
+                            <div class="portfolio-info-full">
+                                <span class="portfolio-category">Software Personalizado</span>
+                                <h3>SGE — Sistema de Gestão de Estoque</h3>
+                                <p>ERP sob medida para indústria: controle de produtos, fornecedores, marcas e categorias, com registro de entradas e saídas e dashboard de custo, valor e lucro do estoque.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">ERP</span>
+                                    <span class="tag">Dashboard</span>
+                                    <span class="tag">Controle de estoque</span>
+                                    <span class="tag">Relatórios</span>
+                                </div>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <strong>7</strong>
+                                        <span>Módulos de gestão</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>Tempo real</strong>
+                                        <span>Indicadores de vendas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Recrutamento e Seleção -->
+                <article class="portfolio-item-full" data-category="software web">
+                    <div class="portfolio-image-full">
+                        <img src="Assets/RecrutamentoSelecao.png" alt="Tela de gerenciamento de vagas da plataforma Effore Recrutamento e Seleção" loading="lazy" decoding="async">
+                        <div class="portfolio-overlay-full">
+                            <div class="portfolio-info-full">
+                                <span class="portfolio-category">Software Personalizado</span>
+                                <h3>Plataforma de Recrutamento e Seleção</h3>
+                                <p>Sistema de gestão de vagas e candidatos com painel de produtividade por período, distribuição por tipo de contratação e módulos de conteúdo para blog e marketing.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Gestão de vagas</span>
+                                    <span class="tag">Banco de candidatos</span>
+                                    <span class="tag">Analytics</span>
+                                    <span class="tag">Multiempresa</span>
+                                </div>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <strong>6</strong>
+                                        <span>Módulos integrados</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>Painel</strong>
+                                        <span>Métricas em tempo real</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Catálogo Digital -->
+                <article class="portfolio-item-full" data-category="web">
+                    <div class="portfolio-image-full">
+                        <img src="https://img.youtube.com/vi/UkEOuZDLa6A/hqdefault.jpg" alt="Capa do vídeo de apresentação do catálogo digital interativo" loading="lazy" decoding="async">
+                        <div class="portfolio-overlay-full">
+                            <div class="portfolio-info-full">
+                                <span class="portfolio-category">Desenvolvimento Web</span>
+                                <h3>Catálogo Digital Interativo</h3>
+                                <p>Catálogo de produtos navegável, com categorização, busca avançada e interface pensada para consulta rápida por vendedores e clientes.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Catálogo</span>
+                                    <span class="tag">Busca avançada</span>
+                                    <span class="tag">UX</span>
+                                </div>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <strong>Vídeo</strong>
+                                        <span>Demonstração completa</span>
+                                    </div>
+                                </div>
+                                <a href="#case-catalogo" class="portfolio-link">
+                                    Assistir à demonstração
+                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cartões de contato digital -->
+                <article class="portfolio-item-full" data-category="web mobile">
+                    <div class="portfolio-image-full">
+                        <img src="Assets/Teste3.jpg" alt="Modelo de cartão de contato digital com estilo neo-brutalista" loading="lazy" decoding="async">
+                        <div class="portfolio-overlay-full">
+                            <div class="portfolio-info-full">
+                                <span class="portfolio-category">Desenvolvimento Web</span>
+                                <h3>Cartões de Contato Digital</h3>
+                                <p>Coleção de páginas de links mobile-first, do glassmorphism ao neo-brutalismo, com vitrine de produtos, horário de funcionamento e status de atendimento.</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Link in bio</span>
+                                    <span class="tag">Mobile-first</span>
+                                    <span class="tag">Personalizável</span>
+                                </div>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <strong>5</strong>
+                                        <span>Modelos prontos</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>100%</strong>
+                                        <span>Personalizável</span>
+                                    </div>
+                                </div>
+                                <a href="#modelos" class="portfolio-link">
+                                    Ver os 5 modelos
+                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="portfolio-empty" hidden>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                </svg>
+                <h3>Ainda não publicamos projetos nesta categoria</h3>
+                <p>Já desenvolvemos soluções que não estão listadas aqui. Conte o que você precisa e mostramos um case parecido.</p>
+                <a href="index.html#contact" class="btn btn-primary">Falar com a equipe</a>
             </div>
         </div>
     </section>
 
     <!-- YouTube Video Section - Catálogo -->
-    <section class="youtube-video-section">
+    <section class="youtube-video-section" id="case-catalogo">
         <div class="container">
             <div class="section-header-centered">
                 <span class="section-tag">PROJETO DESTACADO</span>
@@ -82,7 +285,7 @@
             
             <div class="youtube-wrapper">
                 <div class="youtube-container">
-                    <iframe width="1396" height="785" src="https://www.youtube.com/embed/UkEOuZDLa6A" title="Nosso novo catálogo está com muitas novidades que vão te ajudar!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="1396" height="785" data-src="https://www.youtube-nocookie.com/embed/UkEOuZDLa6A" title="Nosso novo catálogo está com muitas novidades que vão te ajudar!" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 
                 <div class="youtube-info">
@@ -129,7 +332,7 @@
     </section>
 
     <!-- Video Showcase -->
-    <section class="video-showcase">
+    <section class="video-showcase" id="case-ecommerce">
         <div class="container">
             <div class="section-header-centered">
                 <span class="section-tag">CASE DE SUCESSO</span>
@@ -142,8 +345,8 @@
             
             <div class="video-wrapper">
                 <div class="video-container">
-                    <video controls poster="Assets/E-CommerceVideo.mp4">
-                        <source src="Assets/E-CommerceVideo.mp4" type="video/mp4">
+                    <video controls preload="none" poster="Assets/E-CommerceKids.png" data-src="Assets/E-CommerceVideo.mp4">
+                        <source type="video/mp4">
                         Seu navegador não suporta a reprodução de vídeos.
                     </video>
                 </div>
@@ -201,7 +404,7 @@
     </section>
 
     <!-- Showroom de Modelos -->
-    <section class="portfolio-showroom">
+    <section class="portfolio-showroom" id="modelos">
         <div class="container">
             <div class="section-header-centered">
                 <span class="section-tag">TEMPLATES PRONTOS</span>
@@ -216,7 +419,7 @@
                 <!-- Modelo 1 -->
                 <div class="showroom-card">
                     <div class="showroom-preview">
-                        <iframe src="Modelo1.html" scrolling="no"></iframe>
+                        <iframe data-src="Modelo1.html" title="Pré-visualização do Modelo 1 — Meus Links Pro" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
                         <div class="showroom-overlay">
                             <a href="Modelo1.html" target="_blank" class="btn-preview">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -257,7 +460,7 @@
                 <!-- Modelo 2 -->
                 <div class="showroom-card">
                     <div class="showroom-preview">
-                        <iframe src="Modelo2.html" scrolling="no"></iframe>
+                        <iframe data-src="Modelo2.html" title="Pré-visualização do Modelo 2 — Boutique Glass" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
                         <div class="showroom-overlay">
                             <a href="Modelo2.html" target="_blank" class="btn-preview">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -298,7 +501,7 @@
                 <!-- Modelo 3 -->
                 <div class="showroom-card">
                     <div class="showroom-preview">
-                        <iframe src="Modelo3.html" scrolling="no"></iframe>
+                        <iframe data-src="Modelo3.html" title="Pré-visualização do Modelo 3 — Enterprise Premium" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
                         <div class="showroom-overlay">
                             <a href="Modelo3.html" target="_blank" class="btn-preview">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -339,7 +542,7 @@
                 <!-- Modelo 4 -->
                 <div class="showroom-card">
                     <div class="showroom-preview">
-                        <iframe src="Modelo4.html" scrolling="no"></iframe>
+                        <iframe data-src="Modelo4.html" title="Pré-visualização do Modelo 4 — Meu Negócio Local" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
                         <div class="showroom-overlay">
                             <a href="Modelo4.html" target="_blank" class="btn-preview">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -380,7 +583,7 @@
                 <!-- Modelo 5 -->
                 <div class="showroom-card">
                     <div class="showroom-preview">
-                        <iframe src="Modelo5.html" scrolling="no"></iframe>
+                        <iframe data-src="Modelo5.html" title="Pré-visualização do Modelo 5 — Neo-Pop Creative" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
                         <div class="showroom-overlay">
                             <a href="Modelo5.html" target="_blank" class="btn-preview">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

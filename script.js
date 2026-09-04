@@ -3,16 +3,20 @@ const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+}
 
 // Fechar menu ao clicar em um link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+        menuToggle?.classList.remove('active');
+        navMenu?.classList.remove('active');
+        menuToggle?.setAttribute('aria-expanded', 'false');
     });
 });
 
@@ -70,7 +74,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for fade-in animation
 document.addEventListener('DOMContentLoaded', () => {
-    const fadeElements = document.querySelectorAll('.service-card, .portfolio-item, .stat-item, .info-card');
+    const fadeElements = document.querySelectorAll('.service-card, .portfolio-item, .portfolio-item-full, .stat-item, .info-card');
     
     fadeElements.forEach(el => {
         el.classList.add('fade-in');
@@ -119,53 +123,60 @@ if (statsSection) {
 // Contact Form
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    
-    // Reset form
-    contactForm.reset();
-    
-    // In a real application, you would send this data to a server
-    // Example with fetch:
-    /*
-    fetch('your-api-endpoint', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Mensagem enviada com sucesso!');
+// Só existe em index.html — sem esta guarda o script inteiro quebra em portfolio.html
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        // Simulate form submission
+        console.log('Form submitted:', formData);
+
+        // Show success message
+        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+
+        // Reset form
         contactForm.reset();
-    })
-    .catch(error => {
-        alert('Erro ao enviar mensagem. Tente novamente.');
+
+        // In a real application, you would send this data to a server
+        // Example with fetch:
+        /*
+        fetch('your-api-endpoint', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Mensagem enviada com sucesso!');
+            contactForm.reset();
+        })
+        .catch(error => {
+            alert('Erro ao enviar mensagem. Tente novamente.');
+        });
+        */
     });
-    */
-});
+}
 
 // Smooth Scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // "#" sozinho não é um seletor válido e faria o querySelector lançar SyntaxError
+        if (!href || href === '#') return;
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
+        const target = document.querySelector(href);
+
         if (target) {
             const offsetTop = target.offsetTop - 80;
             window.scrollTo({
@@ -177,21 +188,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+    // Consulta os elementos uma vez e escreve dentro de um rAF, em vez de a cada evento de scroll
     const heroContent = document.querySelector('.hero-content');
     const circles = document.querySelectorAll('.gradient-circle');
-    
-    if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-        heroContent.style.opacity = 1 - (scrolled / 600);
-    }
-    
-    circles.forEach((circle, index) => {
-        const speed = 0.3 + (index * 0.1);
-        circle.style.transform = `translate(${scrolled * speed}px, ${scrolled * speed}px)`;
-    });
-});
+    let parallaxTicking = false;
+
+    window.addEventListener('scroll', () => {
+        if (parallaxTicking) return;
+        parallaxTicking = true;
+
+        requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+
+            if (heroContent && scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - (scrolled / 600);
+            }
+
+            circles.forEach((circle, index) => {
+                const speed = 0.3 + (index * 0.1);
+                circle.style.transform = `translate(${scrolled * speed}px, ${scrolled * speed}px)`;
+            });
+
+            parallaxTicking = false;
+        });
+    }, { passive: true });
+}
 
 // Interactive Creative Cursor
 if (window.innerWidth > 768) {
@@ -506,6 +531,8 @@ window.addEventListener('load', () => {
 // Add particle effect to hero section (optional)
 function createParticles() {
     const hero = document.querySelector('.hero');
+    if (!hero) return; // portfolio.html usa .portfolio-hero
+
     const particlesContainer = document.createElement('div');
     particlesContainer.classList.add('particles');
     hero.appendChild(particlesContainer);
@@ -590,53 +617,90 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item-full');
 
 if (filterButtons.length > 0 && portfolioItems.length > 0) {
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            portfolioItems.forEach(item => {
-                if (filterValue === 'all') {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    const categories = item.getAttribute('data-category');
-                    if (categories && categories.includes(filterValue)) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 10);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.9)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
-                }
-            });
+    const emptyState = document.querySelector('.portfolio-empty');
+    const resultCount = document.querySelector('.portfolio-result-count');
+
+    // data-category aceita várias categorias separadas por espaço ("web software")
+    const categoriesOf = item => (item.getAttribute('data-category') || '').trim().split(/\s+/);
+
+    const matches = (item, filter) => filter === 'all' || categoriesOf(item).includes(filter);
+
+    function applyFilter(filter, { updateHistory = true } = {}) {
+        const button = [...filterButtons].find(btn => btn.dataset.filter === filter);
+        if (!button) return;
+
+        filterButtons.forEach(btn => {
+            const isActive = btn === button;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', String(isActive));
         });
+
+        let visible = 0;
+        portfolioItems.forEach(item => {
+            const show = matches(item, filter);
+            item.classList.toggle('hidden', !show);
+            // Tira do fluxo de foco os cards escondidos
+            item.toggleAttribute('inert', !show);
+            if (show) visible++;
+        });
+
+        if (emptyState) emptyState.hidden = visible > 0;
+        if (resultCount) {
+            resultCount.textContent = visible === 1
+                ? '1 projeto'
+                : `${visible} projetos`;
+        }
+
+        if (updateHistory) {
+            const url = new URL(window.location.href);
+            if (filter === 'all') {
+                url.searchParams.delete('filtro');
+            } else {
+                url.searchParams.set('filtro', filter);
+            }
+            history.replaceState(null, '', url);
+        }
+    }
+
+    filterButtons.forEach(button => {
+        // Preenche a contagem de cada filtro a partir dos cards reais
+        const count = [...portfolioItems].filter(item => matches(item, button.dataset.filter)).length;
+        const countEl = button.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+
+        button.addEventListener('click', () => applyFilter(button.dataset.filter));
     });
-    
-    // Initialize portfolio items animation
-    portfolioItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'scale(0.9)';
-        item.style.transition = 'all 0.3s ease';
-        
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'scale(1)';
-        }, index * 100);
-    });
+
+    // Respeita ?filtro=web ao abrir/compartilhar o link
+    const initial = new URLSearchParams(window.location.search).get('filtro');
+    const isKnown = initial && [...filterButtons].some(btn => btn.dataset.filter === initial);
+    applyFilter(isKnown ? initial : 'all', { updateHistory: false });
+}
+
+// Carrega os previews (iframes de modelo e vídeos) só quando entram na viewport
+const lazyFrames = document.querySelectorAll('iframe[data-src], video[data-src]');
+
+if (lazyFrames.length > 0) {
+    const frameObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+            if (el.tagName === 'VIDEO') {
+                const source = el.querySelector('source');
+                if (source) {
+                    source.src = el.dataset.src;
+                    el.load();
+                }
+            } else {
+                el.src = el.dataset.src;
+            }
+            el.removeAttribute('data-src');
+            obs.unobserve(el);
+        });
+    }, { rootMargin: '300px' });
+
+    lazyFrames.forEach(frame => frameObserver.observe(frame));
 }
 
 // Phone Mockup Swiper - Dots Animation

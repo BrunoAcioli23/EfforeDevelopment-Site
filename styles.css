@@ -1642,7 +1642,7 @@ section {
 
 /* Portfolio Filters */
 .portfolio-filters-section {
-    padding: 3rem 0;
+    padding: 1rem 0;
     background: var(--light-gray);
     position: sticky;
     top: 65px;
@@ -1818,6 +1818,165 @@ section {
 .portfolio-stats .stat span {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mídia dos cards de projeto */
+.portfolio-image-full {
+    height: 340px;
+}
+
+.portfolio-image-full img,
+.portfolio-image-full video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+/* Deixa claro que há conteúdo escondido atrás do card */
+.portfolio-image-full::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(33, 42, 50, 0.75), transparent);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.portfolio-item-full:hover .portfolio-image-full::after,
+.portfolio-item-full:focus-within .portfolio-image-full::after {
+    opacity: 0;
+}
+
+/* Sem :focus-within o overlay fica inalcançável por teclado */
+.portfolio-item-full:focus-within .portfolio-overlay-full {
+    transform: translateY(0);
+}
+
+/* Overlay cresce conforme o conteúdo em vez de ficar preso à altura da imagem,
+   assim tags/stats/CTA nunca são cortados */
+.portfolio-overlay-full {
+    top: auto;
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 1.75rem;
+}
+
+.portfolio-info-full {
+    height: auto;
+    justify-content: flex-start;
+}
+
+.portfolio-info-full h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.portfolio-info-full p {
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+}
+
+.portfolio-category {
+    margin-bottom: 0.85rem;
+}
+
+.portfolio-tags {
+    margin-bottom: 1.1rem;
+}
+
+.portfolio-stats {
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+.portfolio-stats .stat strong {
+    font-size: 1.25rem;
+}
+
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    color: var(--orange);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease, gap 0.25s ease;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus-visible {
+    border-bottom-color: var(--orange);
+    gap: 0.7rem;
+}
+
+/* Contador dentro de cada botão de filtro */
+.filter-count {
+    display: inline-block;
+    min-width: 1.35rem;
+    margin-left: 0.35rem;
+    padding: 0 0.35rem;
+    border-radius: 20px;
+    background: rgba(33, 42, 50, 0.08);
+    color: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.portfolio-result-count {
+    margin-bottom: 2rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Estado vazio (categoria ainda sem projetos publicados) */
+.portfolio-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 4rem 2rem;
+    border: 2px dashed #e0e6ed;
+    border-radius: 20px;
+    color: var(--gray);
+}
+
+.portfolio-empty[hidden] {
+    display: none;
+}
+
+.portfolio-empty svg {
+    color: var(--orange);
+}
+
+.portfolio-empty h3 {
+    color: var(--black);
+    font-size: 1.25rem;
+}
+
+.portfolio-empty p {
+    max-width: 42ch;
+}
+
+.portfolio-empty .btn {
+    margin-top: 0.75rem;
 }
 
 /* YouTube Video Section */
@@ -2313,5 +2472,43 @@ section {
 
     .cta-content h2 {
         font-size: 1.75rem;
+    }
+}
+
+/* ==========================================================================
+   Dispositivos sem hover (celular/tablet)
+   Precisa vir DEPOIS das media queries por largura, senão o height fixo
+   de .portfolio-image-full (250px em <=768px) corta o conteúdo do overlay.
+   ========================================================================== */
+@media (hover: none) {
+    .portfolio-image-full {
+        height: auto;
+    }
+
+    .portfolio-image-full img,
+    .portfolio-image-full video {
+        height: 240px;
+    }
+
+    /* Sem hover não há o que revelar: o degradê perde a função */
+    .portfolio-image-full::after {
+        display: none;
+    }
+
+    /* O overlay deixa de sobrepor a imagem e vira conteúdo empilhado */
+    .portfolio-overlay-full {
+        position: static;
+        transform: none;
+        max-height: none;
+        overflow: visible;
+        background: var(--black);
+    }
+
+    .portfolio-info-full {
+        justify-content: flex-start;
+    }
+
+    .portfolio-item-full:hover {
+        transform: none;
     }
 }

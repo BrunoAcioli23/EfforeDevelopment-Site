@@ -35,8 +35,11 @@ Site moderno e animado para a Effore Development, uma software house especializa
 
 ### Página de Portfólio (portfolio.html)
 - **Hero do Portfólio** - Apresentação da página
-- **Filtros** - Sistema de filtros por categoria (Todos, Web, IA, Software, Mobile)
-- **Grid Completo** - 12 projetos detalhados com tags, estatísticas e informações
+- **Filtros** - Sistema de filtros por categoria (Todos, Web, IA, Software, Mobile), com
+  contagem por categoria e estado vazio quando não há projetos publicados
+- **Grid de Projetos** - Cards com categoria, descrição, tags e estatísticas
+- **Cases em destaque** - Catálogo Digital (vídeo YouTube) e E-commerce (vídeo local)
+- **Showroom de Modelos** - 5 templates de cartão de contato digital
 - **CTA Final** - Call to action para iniciar projetos
 - **Footer** - Links e redes sociais
 
@@ -50,10 +53,20 @@ Site moderno e animado para a Effore Development, uma software house especializa
 ## 📝 Personalização
 
 ### Adicionar novos projetos ao portfólio:
-1. Abra o arquivo `portfolio.html`
-2. Copie um bloco `.portfolio-item-full` existente
+1. Abra o arquivo `portfolio.html` e localize a seção `#projetos`
+2. Copie um bloco `<article class="portfolio-item-full">` existente
 3. Edite o conteúdo: título, descrição, categoria, tags e estatísticas
-4. Adicione o atributo `data-category` apropriado para os filtros funcionarem
+4. Ajuste o `data-category` para que os filtros funcionem. Ele aceita **mais de uma
+   categoria separada por espaço**, ex.: `data-category="software web"`.
+   Valores válidos: `web`, `ai`, `software`, `mobile`
+5. A contagem em cada botão de filtro é calculada automaticamente — não precisa editar nada
+
+> As categorias **Inteligência Artificial** e **Mobile** ainda têm poucos ou nenhum projeto
+> publicado. Enquanto estiverem vazias, o filtro mostra um estado vazio com CTA de contato.
+
+### Compartilhar um filtro específico:
+A categoria selecionada é refletida na URL, então é possível divulgar um link direto:
+`portfolio.html?filtro=software`
 
 ### Adicionar sua logo:
 - Salve a imagem da logo na pasta `Assets`
