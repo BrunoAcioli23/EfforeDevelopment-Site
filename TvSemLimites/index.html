@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TV Sem Limites Oficial</title>
+  <meta name="description" content="Filmes, séries e canais ao vivo na sua Smart TV, celular, computador, TV Box ou Fire Stick. Escolha seu plano ou peça um teste grátis de 6 horas.">
+  <meta name="theme-color" content="#0D1233">
+  <link rel="icon" type="image/jpeg" href="assets/logo-192.jpg">
+  <link rel="apple-touch-icon" href="assets/logo-192.jpg">
+  <meta property="og:image" content="assets/logo-512.jpg">
+  <meta property="og:title" content="TV Sem Limites Oficial">
+  <meta property="og:description" content="Filmes, séries e canais ao vivo na tela que você tiver. Teste grátis de 6 horas.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="marca" href="#inicio" aria-label="TV Sem Limites, início">
+      <img class="marca-logo" src="assets/logo-192.jpg" alt="" width="44" height="44">
+      <span>TV Sem Limites</span>
+    </a>
+    <a class="topo-link" href="#planos">Planos</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="parede" aria-hidden="true">
+        <div class="parede-inclinada" id="parede"></div>
+      </div>
+      <div class="hero-texto">
+        <h1>Filmes, séries e canais ao vivo na tela que você tiver.</h1>
+        <p>Escolha um plano, diga onde vai assistir e receba o passo a passo para instalar. A ativação é feita pelo WhatsApp.</p>
+        <div class="hero-acoes">
+          <a class="btn btn-sinal" href="#planos">Ver planos</a>
+          <button class="btn btn-contorno" type="button" data-teste>Testar grátis por 6 horas</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="passos" aria-labelledby="passos-titulo">
+      <h2 id="passos-titulo">Como funciona</h2>
+      <ol>
+        <li>
+          <h3>Escolha um plano</h3>
+          <p>Mensal, trimestral, semestral, anual ou 6 horas de teste grátis.</p>
+        </li>
+        <li>
+          <h3>Diga onde vai assistir</h3>
+          <p>Smart TV, celular, computador, TV Box ou Fire Stick.</p>
+        </li>
+        <li>
+          <h3>Instale e ative</h3>
+          <p>Mostramos o aplicativo certo e você finaliza com a gente no WhatsApp.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="planos" id="planos" aria-labelledby="planos-titulo">
+      <div class="barras" aria-hidden="true"></div>
+      <div class="planos-cabeca">
+        <h2 id="planos-titulo">Escolha seu plano</h2>
+        <p>Filmes, séries, animes, canais e esportes ao vivo em todos os planos. Quanto mais longo o plano, mais você economiza.</p>
+      </div>
+      <div class="planos-grade" id="planos-grade"></div>
+
+      <div class="teste">
+        <div>
+          <h3>Experimente grátis por <span data-horas>6</span> horas</h3>
+          <p>Sem compromisso e sem pagamento. Teste no seu aparelho e veja a qualidade antes de assinar.</p>
+        </div>
+        <button class="btn btn-sinal" type="button" data-teste>Pedir teste grátis</button>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-titulo">
+      <h2 id="faq-titulo">Dúvidas comuns</h2>
+      <details>
+        <summary>Como recebo meu acesso?</summary>
+        <p>Depois de escolher o plano e o aparelho, você instala o aplicativo indicado e envia a mensagem pronta no WhatsApp. A gente responde com os dados de acesso ou ativa pelos códigos da tela do app.</p>
+      </details>
+      <details>
+        <summary>Preciso de antena ou TV a cabo?</summary>
+        <p>Não. Basta uma conexão de internet estável, pelo Wi-Fi ou pelo cabo de rede.</p>
+      </details>
+      <details>
+        <summary>O teste grátis tem algum custo?</summary>
+        <p>Não. O teste dura <span data-horas>6</span> horas e você não paga nada para testar. Se gostar, é só escolher um plano pelo WhatsApp.</p>
+      </details>
+      <details>
+        <summary>Meu aparelho não aparece na lista. E agora?</summary>
+        <p>Escolha a opção mais próxima ou "Outra marca". No WhatsApp a gente confere o modelo e indica o aplicativo certo.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <a class="marca" href="#inicio">
+      <img class="marca-logo" src="assets/logo-192.jpg" alt="" width="44" height="44">
+      <span>TV Sem Limites</span>
+    </a>
+    <p>Atendimento pelo WhatsApp. <a id="link-instagram" href="#" target="_blank" rel="noopener">Siga no Instagram</a></p>
+  </footer>
+
+  <dialog class="fluxo" id="fluxo" aria-labelledby="fluxo-titulo">
+    <div class="fluxo-topo">
+      <div class="progresso" aria-hidden="true"><span id="progresso-resto"></span></div>
+      <div class="fluxo-barra">
+        <button class="icone-btn" type="button" id="fluxo-voltar" aria-label="Voltar">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="fluxo-pedido" id="fluxo-pedido"></p>
+        <button class="icone-btn" type="button" id="fluxo-fechar" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="fluxo-corpo" id="fluxo-corpo" aria-live="polite"></div>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
