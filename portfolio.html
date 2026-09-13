@@ -17,11 +17,25 @@
     <meta property="og:image" content="https://efforedevelopment.com.br/Assets/E-CommerceKids.png">
     <meta name="twitter:card" content="summary_large_image">
 
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141a1f" media="(prefers-color-scheme: dark)">
+
+    <!-- Aplica o tema antes da pintura para não piscar claro ao abrir no escuro -->
+    <script>
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) {}
+            var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        })();
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="Assets/LogoEfforeDevelopmentAbaSite.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navegação -->
@@ -29,36 +43,44 @@
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development Logo">
+                    <a href="index.html" aria-label="Effore Development, página inicial">
+                        <img class="logo-on-light" src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="">
+                        <img class="logo-on-dark" src="Assets/EfforeDevelopmentLogoClaro.png" alt="">
                     </a>
                 </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html#home" class="nav-link">Início</a></li> 
+                    <li><a href="index.html#home" class="nav-link">Início</a></li>
                     <li><a href="index.html#services" class="nav-link">Serviços</a></li>
                     <li><a href="portfolio.html" class="nav-link active">Portfólio</a></li>
                     <li><a href="index.html#about" class="nav-link">Sobre</a></li>
                     <li><a href="index.html#contact" class="nav-link btn-contact">Contato</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Ativar tema escuro">
+                        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                        </svg>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Portfolio Hero -->
     <section class="portfolio-hero">
-        <div class="hero-bg">
-            <div class="gradient-circle circle-1"></div>
-            <div class="gradient-circle circle-2"></div>
-        </div>
         <div class="container">
             <div class="portfolio-hero-content">
-                <span class="section-tag">NOSSOS PROJETOS</span>
-                <h1 class="hero-title">Portfólio Completo</h1>
+                <span class="section-tag">nossos projetos</span>
+                <h1 class="hero-title">Portfólio completo</h1>
                 <p class="hero-subtitle">
                     Conheça todos os projetos que desenvolvemos com excelência e inovação.<br>
                     Cada case representa nosso compromisso com qualidade e resultados.
@@ -275,8 +297,8 @@
     <section class="youtube-video-section" id="case-catalogo">
         <div class="container">
             <div class="section-header-centered">
-                <span class="section-tag">PROJETO DESTACADO</span>
-                <h2 class="section-title">Catálogo Digital Interativo</h2>
+                <span class="section-tag">projeto destacado</span>
+                <h2 class="section-title">Catálogo digital interativo</h2>
                 <p class="section-subtitle">
                     Assista ao vídeo completo do nosso catálogo desenvolvido,<br>
                     uma solução moderna e intuitiva para apresentação de produtos.
@@ -335,8 +357,8 @@
     <section class="video-showcase" id="case-ecommerce">
         <div class="container">
             <div class="section-header-centered">
-                <span class="section-tag">CASE DE SUCESSO</span>
-                <h2 class="section-title">Veja Nosso Trabalho em Ação</h2>
+                <span class="section-tag">case de sucesso</span>
+                <h2 class="section-title">Veja nosso trabalho em ação</h2>
                 <p class="section-subtitle">
                     Conheça um dos nossos projetos de e-commerce completo,<br>
                     desenvolvido com tecnologia de ponta e design inovador.
@@ -407,8 +429,8 @@
     <section class="portfolio-showroom" id="modelos">
         <div class="container">
             <div class="section-header-centered">
-                <span class="section-tag">TEMPLATES PRONTOS</span>
-                <h2 class="section-title">Cartão de Contato Digital</h2>
+                <span class="section-tag">templates prontos</span>
+                <h2 class="section-title">Cartão de contato digital</h2>
                 <p class="section-subtitle">
                     Escolha o modelo perfeito para suas páginas de links.<br>
                     Todos os modelos são personalizáveis e totalmente responsivos.
@@ -638,7 +660,7 @@
     <section class="portfolio-cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Pronto para Criar Seu Próximo Projeto?</h2>
+                <h2>Pronto para criar seu próximo projeto?</h2>
                 <p>Vamos transformar sua ideia em realidade digital</p>
                 <a href="index.html#contact" class="btn btn-primary btn-large">
                     Iniciar Projeto
@@ -655,7 +677,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development Logo" class="footer-logo">
+                    <img src="Assets/EfforeDevelopmentLogoClaro.png" alt="Effore Development" class="footer-logo">
                     <p class="footer-text">
                         Transformando ideias em soluções digitais inovadoras
                     </p>

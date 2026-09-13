@@ -17,53 +17,72 @@
     <meta property="og:image" content="https://efforedevelopment.com.br/Assets/EfforeDevelopmentLogo.png">
     <meta name="twitter:card" content="summary_large_image">
 
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141a1f" media="(prefers-color-scheme: dark)">
+
+    <!-- Aplica o tema antes da pintura para não piscar claro ao abrir no escuro -->
+    <script>
+        (function () {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) {}
+            var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        })();
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="Assets/LogoEfforeDevelopmentAbaSite.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development Logo">
+                    <img class="logo-on-light" src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development">
+                    <img class="logo-on-dark" src="Assets/EfforeDevelopmentLogoClaro.png" alt="Effore Development">
                 </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link active">Início</a></li> 
+                    <li><a href="#home" class="nav-link active">Início</a></li>
                     <li><a href="#services" class="nav-link">Serviços</a></li>
                     <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
                     <li><a href="#about" class="nav-link">Sobre</a></li>
                     <li><a href="#contact" class="nav-link btn-contact">Contato</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Ativar tema escuro">
+                        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                        </svg>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-bg">
-            <div class="gradient-circle circle-1"></div>
-            <div class="gradient-circle circle-2"></div>
-            <div class="gradient-circle circle-3"></div>
-        </div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        <span class="title-line">Transformamos</span>
-                        <span class="title-line highlight">Ideias</span>
-                        <span class="title-line">em Soluções Digitais</span>
+                        <span class="title-line">Transformamos ideias</span>
+                        <span class="title-line">em soluções digitais</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Desenvolvimento Web • Inteligência Artificial • Softwares<br>
-                        Soluções digitais sob medida para impulsionar seu negócio
+                        Sites, inteligência artificial e softwares feitos sob medida para impulsionar o seu negócio.
                     </p>
                     <div class="hero-cta">
                         <a href="#contact" class="btn btn-primary">
@@ -73,29 +92,17 @@
                             </svg>
                         </a>
                         <a href="#services" class="btn btn-secondary">
-                            Nossos Serviços
+                            Ver serviços
                         </a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="floating-card card-1">
-                        <div class="card-icon">💻</div>
-                        <div class="card-text">Desenvolvimento Web</div>
-                    </div>
-                    <div class="floating-card card-2">
-                        <div class="card-icon">🤖</div>
-                        <div class="card-text">Inteligência Artificial</div>
-                    </div>
-                    <div class="floating-card card-3">
-                        <div class="card-icon">⚡</div>
-                        <div class="card-text">Entrega Rapida</div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="brace-mark">
+                        <span class="brace brace-open">{</span>
+                        <span class="brace-core">&lt;/&gt;</span>
+                        <span class="brace brace-close">}</span>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
             </div>
         </div>
     </section>
@@ -104,22 +111,22 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">O QUE FAZEMOS</span>
-                <h2 class="section-title">Nossos Serviços</h2>
+                <span class="section-tag">o que fazemos</span>
+                <h2 class="section-title">Nossos serviços</h2>
                 <p class="section-description">
-                    Oferecemos soluções completas e personalizadas para transformar seu negócio digitalmente
+                    Soluções completas e personalizadas para levar o seu negócio para o digital
                 </p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M8 8H40V40H8V8Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8 18H40" stroke="#fa7608" stroke-width="2"/>
-                            <circle cx="14" cy="13" r="1.5" fill="#fa7608"/>
-                            <circle cx="20" cy="13" r="1.5" fill="#fa7608"/>
-                            <circle cx="26" cy="13" r="1.5" fill="#fa7608"/>
+                        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <path d="M8 8H40V40H8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 18H40" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="14" cy="13" r="1.5" fill="currentColor"/>
+                            <circle cx="20" cy="13" r="1.5" fill="currentColor"/>
+                            <circle cx="26" cy="13" r="1.5" fill="currentColor"/>
                         </svg>
                     </div>
                     <h3 class="service-title">Desenvolvimento Web</h3>
@@ -137,10 +144,10 @@
                 <div class="service-card featured">
                     <div class="featured-badge">Popular</div>
                     <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M4 24L24 34L44 24" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M4 34L24 44L44 34" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 24L24 34L44 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 34L24 44L44 34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <h3 class="service-title">Inteligência Artificial</h3>
@@ -157,9 +164,9 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <rect x="6" y="6" width="36" height="36" rx="4" stroke="#fa7608" stroke-width="2"/>
-                            <path d="M16 24L22 30L32 18" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <h3 class="service-title">Softwares Personalizados</h3>
@@ -181,8 +188,8 @@
     <section class="technologies">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">TECNOLOGIAS</span>
-                <h2 class="section-title">Stack Moderno</h2>
+                <span class="section-tag">tecnologias</span>
+                <h2 class="section-title">Stack moderno</h2>
             </div>
             
             <div class="tech-slider">
@@ -211,8 +218,8 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">PROJETOS PRINCIPAIS</span>
-                <h2 class="section-title">Cases de Sucesso</h2>
+                <span class="section-tag">projetos principais</span>
+                <h2 class="section-title">Cases de sucesso</h2>
                 <p class="section-description">
                     Conheça alguns dos nossos principais projetos desenvolvidos
                 </p>
@@ -308,8 +315,8 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <span class="section-tag">SOBRE NÓS</span>
-                    <h2 class="section-title">Inovação e Excelência</h2>
+                    <span class="section-tag">sobre nós</span>
+                    <h2 class="section-title">Inovação e excelência</h2>
                     <p class="about-description">
                         Somos uma software house especializada em criar soluções digitais que transformam negócios. 
                         Com expertise em desenvolvimento web, inteligência artificial e softwares personalizados, 
@@ -348,8 +355,8 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">FALE CONOSCO</span>
-                <h2 class="section-title">Vamos Conversar?</h2>
+                <span class="section-tag">fale conosco</span>
+                <h2 class="section-title">Vamos conversar?</h2>
                 <p class="section-description">
                     Conte-nos sobre seu projeto e vamos criar algo incrível juntos
                 </p>
@@ -386,8 +393,8 @@
                 <div class="contact-info">
                     <div class="info-card">
                         <div class="info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M3 8L10.89 13.26C11.5 13.67 12.5 13.67 13.11 13.26L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M3 8L10.89 13.26C11.5 13.67 12.5 13.67 13.11 13.26L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <h3>E-mail</h3>
@@ -396,8 +403,8 @@
                     
                     <div class="info-card">
                         <div class="info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <h3>Telefone</h3>
@@ -406,8 +413,8 @@
                     
                     <div class="info-card">
                         <div class="info-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" stroke="#fa7608" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <h3>Localização</h3>
@@ -423,7 +430,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="Assets/EfforeDevelopmentLogoReduzidoTransparete.png" alt="Effore Development Logo" class="footer-logo">
+                    <img src="Assets/EfforeDevelopmentLogoClaro.png" alt="Effore Development" class="footer-logo">
                     <p class="footer-text">
                         Transformando ideias em soluções digitais inovadoras
                     </p>
@@ -434,7 +441,7 @@
                             </svg>
                         </a>
                         <a href="https://wa.me/5511942138664" class="social-link" aria-label="WhatsApp" target="_blank">
-                            <svg width="205" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M17.25 2.75C15.4375 1.03125 12.875 0 10 0C4.625 0 0.25 4.375 0.25 9.75C0.25 11.375 0.625 13 1.25 14.375L0.25 20L5.75 19C7.125 19.5625 8.5625 19.875 10 19.875C15.375 19.875 19.75 15.5 19.75 10.125C19.75 7.25 18.6875 4.625 17.25 2.75ZM10 18.25C8.75 18.25 7.5625 17.9375 6.5 17.375L6.1875 17.1875L2.875 18.0625L3.75 14.875L3.5625 14.5625C2.8125 13.375 2.4375 11.9375 2.4375 10.4375C2.4375 5.875 5.875 2.25 10.4375 2.25C12.9375 2.25 15.1875 3.3125 16.625 5.0625C18.0625 6.8125 18.8125 8.9375 18.8125 11.3125C18.8125 15.875 15.375 19.25 10 18.25ZM14.875 11.75C14.5 11.5625 12.8125 10.6875 12.5 10.5625C12.1875 10.4375 11.9375 10.4375 11.6875 10.8125C11.4375 11.1875 10.875 11.875 10.625 12.125C10.4375 12.375 10.1875 12.375 9.875 12.1875C7.875 11.0625 6.5625 9.3125 6.125 7.375C6 7.0625 6.125 6.8125 6.3125 6.625C6.5 6.4375 6.75 6.1875 6.9375 6C7.125 5.8125 7.1875 5.6875 7.3125 5.4375C7.4375 5.1875 7.375 4.9375 7.25 4.75C7.125 4.5625 6.125 2.75 5.8125 2.125C5.5 1.5 5.1875 1.625 4.9375 1.625C4.6875 1.625 4.4375 1.625 4.1875 1.625C3.9375 1.625 3.5 1.75 3.1875 2.0625C2.875 2.3750 1.9375 3.25 1.9375 5.0625C1.9375 6.875 3.25 8.625 3.4375 8.875C3.625 9.125 6.125 13.25 10.1875 15.0625C11.25 15.5625 12.0625 15.8125 12.6875 16 C13.75 16.3125 14.75 16.25 15.5 16.125C16.3125 15.9688 18.1875 14.9375 18.5 13.8125C18.8125 12.6875 18.8125 11.75 18.6875 11.5625C18.5625 11.375 18.3125 11.3125 17.9375 11.125L14.875 11.75Z"/>
                             </svg>
                         </a>

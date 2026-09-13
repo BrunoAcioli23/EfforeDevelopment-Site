@@ -1,3 +1,38 @@
+// Tema claro/escuro
+// O <head> já grava data-theme antes da pintura; aqui ficam o botão e a troca do sistema
+const themeToggle = document.getElementById('themeToggle');
+const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+function readStoredTheme() {
+    try {
+        return localStorage.getItem('theme');
+    } catch (e) {
+        return null;
+    }
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    themeToggle?.setAttribute('aria-label', theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro');
+}
+
+applyTheme(document.documentElement.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light'));
+
+themeToggle?.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try {
+        localStorage.setItem('theme', next);
+    } catch (e) {
+        // Sem storage (aba anônima bloqueada): o tema vale só para esta visita
+    }
+});
+
+// Enquanto o visitante não escolher, acompanha o tema do sistema
+systemDark.addEventListener('change', (e) => {
+    if (!readStoredTheme()) applyTheme(e.matches ? 'dark' : 'light');
+});
+
 // Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
@@ -57,30 +92,6 @@ function activateNavLink() {
 }
 
 window.addEventListener('scroll', activateNavLink);
-
-// Intersection Observer for Animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Observe elements for fade-in animation
-document.addEventListener('DOMContentLoaded', () => {
-    const fadeElements = document.querySelectorAll('.service-card, .portfolio-item, .portfolio-item-full, .stat-item, .info-card');
-    
-    fadeElements.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-});
 
 // Counter Animation for Stats
 function animateCounter(element) {
@@ -193,7 +204,6 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 if (!prefersReducedMotion) {
     // Consulta os elementos uma vez e escreve dentro de um rAF, em vez de a cada evento de scroll
     const heroContent = document.querySelector('.hero-content');
-    const circles = document.querySelectorAll('.gradient-circle');
     let parallaxTicking = false;
 
     window.addEventListener('scroll', () => {
@@ -207,11 +217,6 @@ if (!prefersReducedMotion) {
                 heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
                 heroContent.style.opacity = 1 - (scrolled / 600);
             }
-
-            circles.forEach((circle, index) => {
-                const speed = 0.3 + (index * 0.1);
-                circle.style.transform = `translate(${scrolled * speed}px, ${scrolled * speed}px)`;
-            });
 
             parallaxTicking = false;
         });
@@ -391,7 +396,7 @@ if (window.innerWidth > 768) {
         .custom-cursor.hover {
             width: 6px;
             height: 6px;
-            background: var(--white);
+            background: var(--text);
             box-shadow: 0 0 30px rgba(250, 118, 8, 0.8);
         }
         
@@ -406,14 +411,14 @@ if (window.innerWidth > 768) {
         .custom-cursor.btn-hover {
             width: 20px;
             height: 20px;
-            background: var(--white);
+            background: var(--on-accent);
             box-shadow: 0 0 40px rgba(250, 118, 8, 1);
         }
-        
+
         .cursor-ring.btn-hover {
             width: 80px;
             height: 80px;
-            border-color: var(--white);
+            border-color: var(--text);
             opacity: 0.8;
         }
         
@@ -427,7 +432,7 @@ if (window.innerWidth > 768) {
         .custom-cursor.clicking {
             width: 8px;
             height: 8px;
-            background: var(--white);
+            background: var(--text);
         }
         
         .cursor-ring.clicking {
@@ -527,73 +532,6 @@ window.addEventListener('load', () => {
         document.querySelector('.hero-content')?.classList.add('visible');
     }, 200);
 });
-
-// Add particle effect to hero section (optional)
-function createParticles() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return; // portfolio.html usa .portfolio-hero
-
-    const particlesContainer = document.createElement('div');
-    particlesContainer.classList.add('particles');
-    hero.appendChild(particlesContainer);
-    
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 5 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        particlesContainer.appendChild(particle);
-    }
-    
-    // Add CSS for particles
-    const style = document.createElement('style');
-    style.textContent = `
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--orange);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float-particle 15s infinite ease-in-out;
-        }
-        
-        @keyframes float-particle {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-100vh) translateX(100px);
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-// Initialize particles on desktop
-if (window.innerWidth > 768) {
-    createParticles();
-}
 
 // Performance optimization: Debounce scroll events
 function debounce(func, wait) {
