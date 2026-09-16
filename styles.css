@@ -1310,8 +1310,52 @@ section {
     font-size: 1.15rem;
     color: var(--text-muted);
     line-height: 1.75;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     max-width: 36rem;
+}
+
+/* Quem assina o trabalho: fica entre o texto e os números */
+.about-person {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 36rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+}
+
+.person-photo {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Iniciais enquanto não houver foto */
+.person-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+}
+
+.person-name {
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.person-role {
+    color: var(--text-muted);
+    font-size: 0.925rem;
+    line-height: 1.5;
 }
 
 .about-stats {
@@ -1327,6 +1371,10 @@ section {
 .stat-item + .stat-item {
     padding-left: 1.25rem;
     border-left: 1px solid var(--border);
+}
+
+.stat-label {
+    text-wrap: pretty;
 }
 
 .stat-number {
@@ -1514,7 +1562,7 @@ section {
 
 .info-card {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
     column-gap: 1rem;
     align-items: center;
     padding: 1.5rem;
@@ -1552,6 +1600,7 @@ section {
     color: var(--text);
     font-weight: 600;
     overflow-wrap: anywhere;
+    line-height: 1.4;
 }
 
 .info-card p a {
@@ -1570,8 +1619,10 @@ section {
 }
 
 .copy-btn {
-    grid-row: span 2;
-    grid-column: 3;
+    /* embaixo do endereço: disputando a mesma linha, o e-mail quebrava no meio da palavra */
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.5rem;
     padding: 0.35rem 0.7rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
