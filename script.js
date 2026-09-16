@@ -1,3 +1,5 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 // Tema claro/escuro
 // O <head> já grava data-theme antes da pintura; aqui ficam o botão e a troca do sistema
 const themeToggle = document.getElementById('themeToggle');
@@ -33,524 +35,197 @@ systemDark.addEventListener('change', (e) => {
     if (!readStoredTheme()) applyTheme(e.matches ? 'dark' : 'light');
 });
 
-// Menu Toggle
+// Menu mobile
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
 
 if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        const isOpen = menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    const setMenu = (open) => {
+        menuToggle.classList.toggle('active', open);
+        navMenu.classList.toggle('active', open);
+        backdrop.classList.toggle('active', open);
+        document.body.classList.toggle('menu-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    };
+
+    menuToggle.addEventListener('click', () => setMenu(!navMenu.classList.contains('active')));
+    backdrop.addEventListener('click', () => setMenu(false));
+    navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            setMenu(false);
+            menuToggle.focus();
+        }
+    });
+
+    // Ao voltar para a largura de desktop o menu lateral não pode ficar aberto
+    window.matchMedia('(min-width: 969px)').addEventListener('change', (e) => {
+        if (e.matches) setMenu(false);
     });
 }
 
-// Fechar menu ao clicar em um link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle?.classList.remove('active');
-        navMenu?.classList.remove('active');
-        menuToggle?.setAttribute('aria-expanded', 'false');
-    });
-});
-
-// Navbar Scroll Effect
+// Navbar: borda ao rolar + barra de progresso de leitura (um único rAF por frame)
 const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
+let scrollTicking = false;
+
+function onScrollFrame() {
+    const scrolled = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+
+    navbar?.classList.toggle('scrolled', scrolled > 8);
+    navbar?.style.setProperty('--progress', max > 0 ? Math.min(scrolled / max, 1).toFixed(4) : '0');
+    scrollTicking = false;
+}
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(onScrollFrame);
+}, { passive: true });
 
-// Active Nav Link on Scroll
-const sections = document.querySelectorAll('section[id]');
+window.addEventListener('resize', onScrollFrame, { passive: true });
+onScrollFrame();
 
-function activateNavLink() {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
+// Link ativo da navegação conforme a seção visível (só na página com âncoras locais)
+const localNavLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+if (localNavLinks.length > 0) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            localNavLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
             });
-            document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
-        }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    document.querySelectorAll('section[id]').forEach(section => sectionObserver.observe(section));
+}
+
+// Hero: a grade acende em volta do ponteiro
+const hero = document.querySelector('.hero');
+
+if (hero && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let pointerFrame = 0;
+
+    hero.addEventListener('pointermove', (e) => {
+        cancelAnimationFrame(pointerFrame);
+        pointerFrame = requestAnimationFrame(() => {
+            const rect = hero.getBoundingClientRect();
+            hero.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            hero.style.setProperty('--my', `${e.clientY - rect.top}px`);
+            hero.classList.add('is-pointing');
+        });
+    });
+
+    hero.addEventListener('pointerleave', () => {
+        cancelAnimationFrame(pointerFrame);
+        hero.classList.remove('is-pointing');
     });
 }
 
-window.addEventListener('scroll', activateNavLink);
-
-// Counter Animation for Stats
+// Contadores dos números. O HTML já traz o valor final (sem JS continua correto);
+// aqui ele só é animado de 0 até o alvo quando entra na tela.
 function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-target'));
-    const duration = 2000; // 2 seconds
-    const increment = target / (duration / 16); // 60fps
-    let current = 0;
-    
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            element.textContent = Math.floor(current);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-        }
-    };
-    
-    updateCounter();
-}
+    const target = parseInt(element.dataset.target, 10);
+    const suffix = element.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
 
-// Observe stats section
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                animateCounter(counter);
-            });
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+    const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = `${Math.round(target * eased)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+}
 
 const statsSection = document.querySelector('.about-stats');
-if (statsSection) {
+
+if (statsSection && !prefersReducedMotion.matches) {
+    const counters = statsSection.querySelectorAll('.stat-number[data-target]');
+    counters.forEach(counter => {
+        counter.textContent = `0${counter.dataset.suffix || ''}`;
+    });
+
+    const statsObserver = new IntersectionObserver((entries, obs) => {
+        if (!entries[0].isIntersecting) return;
+        counters.forEach(animateCounter);
+        obs.disconnect();
+    }, { threshold: 0.5 });
+
     statsObserver.observe(statsSection);
 }
 
-// Contact Form
+// Formulário de contato: monta a mensagem e abre o WhatsApp já preenchido
 const contactForm = document.getElementById('contactForm');
+const WHATSAPP_NUMBER = '5511942138664';
 
-// Só existe em index.html — sem esta guarda o script inteiro quebra em portfolio.html
 if (contactForm) {
+    const status = contactForm.querySelector('.form-status');
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        if (!contactForm.reportValidity()) return;
 
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
+        const data = new FormData(contactForm);
+        const text = [
+            `Olá! Meu nome é ${data.get('name').trim()} (${data.get('email').trim()}).`,
+            '',
+            `*Assunto:* ${data.get('subject').trim()}`,
+            '',
+            data.get('message').trim()
+        ].join('\n');
 
-        // Simulate form submission
-        console.log('Form submitted:', formData);
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        const opened = window.open(url, '_blank', 'noopener');
 
-        // Show success message
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-
-        // Reset form
-        contactForm.reset();
-
-        // In a real application, you would send this data to a server
-        // Example with fetch:
-        /*
-        fetch('your-api-endpoint', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Mensagem enviada com sucesso!');
-            contactForm.reset();
-        })
-        .catch(error => {
-            alert('Erro ao enviar mensagem. Tente novamente.');
-        });
-        */
+        if (status) {
+            status.textContent = opened
+                ? 'Abrimos o WhatsApp com a sua mensagem. É só confirmar o envio por lá.'
+                : 'O navegador bloqueou a nova aba. Escreva para efforedevelopment@gmail.com ou libere pop-ups e tente de novo.';
+            status.style.color = opened ? '' : 'var(--danger)';
+        }
     });
 }
 
-// Smooth Scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        // "#" sozinho não é um seletor válido e faria o querySelector lançar SyntaxError
-        if (!href || href === '#') return;
+// Botão "Copiar" (e-mail do contato)
+document.querySelectorAll('[data-copy]').forEach(button => {
+    const label = button.textContent;
+    let resetTimer = 0;
 
-        e.preventDefault();
-        const target = document.querySelector(href);
-
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+    button.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(button.dataset.copy);
+            button.textContent = 'Copiado';
+            button.classList.add('is-done');
+        } catch (e) {
+            button.textContent = 'Selecione e copie';
         }
+
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
+            button.textContent = label;
+            button.classList.remove('is-done');
+        }, 2000);
     });
 });
 
-// Parallax effect for hero section
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (!prefersReducedMotion) {
-    // Consulta os elementos uma vez e escreve dentro de um rAF, em vez de a cada evento de scroll
-    const heroContent = document.querySelector('.hero-content');
-    let parallaxTicking = false;
-
-    window.addEventListener('scroll', () => {
-        if (parallaxTicking) return;
-        parallaxTicking = true;
-
-        requestAnimationFrame(() => {
-            const scrolled = window.pageYOffset;
-
-            if (heroContent && scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-                heroContent.style.opacity = 1 - (scrolled / 600);
-            }
-
-            parallaxTicking = false;
-        });
-    }, { passive: true });
-}
-
-// Interactive Creative Cursor
-if (window.innerWidth > 768) {
-    // Create cursor elements
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-    
-    const cursorRing = document.createElement('div');
-    cursorRing.classList.add('cursor-ring');
-    document.body.appendChild(cursorRing);
-    
-    const cursorTrail = document.createElement('div');
-    cursorTrail.classList.add('cursor-trail');
-    document.body.appendChild(cursorTrail);
-    
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    let ringX = 0, ringY = 0;
-    let isClicking = false;
-    
-    // Track mouse position
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        // Create trail effect
-        createTrailDot(e.clientX, e.clientY);
-    });
-    
-    // Cursor animation loop
-    function animateCursor() {
-        // Smooth cursor movement
-        cursorX += (mouseX - cursorX) * 0.3;
-        cursorY += (mouseY - cursorY) * 0.3;
-        
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
-        
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        
-        cursorRing.style.left = ringX + 'px';
-        cursorRing.style.top = ringY + 'px';
-        
-        requestAnimationFrame(animateCursor);
-    }
-    
-    animateCursor();
-    
-    // Trail dots
-    let trailDotTimer = 0;
-    function createTrailDot(x, y) {
-        trailDotTimer++;
-        if (trailDotTimer % 3 !== 0) return; // Create every 3rd frame
-        
-        const dot = document.createElement('div');
-        dot.className = 'trail-dot';
-        dot.style.left = x + 'px';
-        dot.style.top = y + 'px';
-        cursorTrail.appendChild(dot);
-        
-        setTimeout(() => {
-            dot.remove();
-        }, 800);
-    }
-    
-    // Click ripple effect
-    document.addEventListener('mousedown', (e) => {
-        isClicking = true;
-        cursor.classList.add('clicking');
-        cursorRing.classList.add('clicking');
-        
-        // Create ripple
-        const ripple = document.createElement('div');
-        ripple.className = 'cursor-ripple';
-        ripple.style.left = e.clientX + 'px';
-        ripple.style.top = e.clientY + 'px';
-        document.body.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-    
-    document.addEventListener('mouseup', () => {
-        isClicking = false;
-        cursor.classList.remove('clicking');
-        cursorRing.classList.remove('clicking');
-    });
-    
-    // Interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .btn, .service-card, .portfolio-item, input, textarea, .nav-link');
-    
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
-            cursorRing.classList.add('hover');
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-            cursorRing.classList.remove('hover');
-        });
-    });
-    
-    // Special effect for buttons
-    const buttons = document.querySelectorAll('.btn-primary');
-    buttons.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-            cursor.classList.add('btn-hover');
-            cursorRing.classList.add('btn-hover');
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-            cursor.classList.remove('btn-hover');
-            cursorRing.classList.remove('btn-hover');
-        });
-    });
-    
-    // Text selection effect
-    const textElements = document.querySelectorAll('h1, h2, h3, p');
-    textElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('text-hover');
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('text-hover');
-        });
-    });
-    
-    // Hide default cursor
-    document.body.style.cursor = 'none';
-    interactiveElements.forEach(el => {
-        el.style.cursor = 'none';
-    });
-    
-    // Add CSS for cursor
-    const style = document.createElement('style');
-    style.textContent = `
-        body, a, button, input, textarea {
-            cursor: none !important;
-        }
-        
-        .custom-cursor {
-            position: fixed;
-            width: 12px;
-            height: 12px;
-            background: var(--orange);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
-            box-shadow: 0 0 20px rgba(250, 118, 8, 0.5);
-        }
-        
-        .cursor-ring {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--orange);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
-            opacity: 0.6;
-        }
-        
-        .custom-cursor.hover {
-            width: 6px;
-            height: 6px;
-            background: var(--text);
-            box-shadow: 0 0 30px rgba(250, 118, 8, 0.8);
-        }
-        
-        .cursor-ring.hover {
-            width: 60px;
-            height: 60px;
-            border-width: 3px;
-            opacity: 1;
-            border-color: var(--orange);
-        }
-        
-        .custom-cursor.btn-hover {
-            width: 20px;
-            height: 20px;
-            background: var(--on-accent);
-            box-shadow: 0 0 40px rgba(250, 118, 8, 1);
-        }
-
-        .cursor-ring.btn-hover {
-            width: 80px;
-            height: 80px;
-            border-color: var(--text);
-            opacity: 0.8;
-        }
-        
-        .custom-cursor.text-hover {
-            width: 4px;
-            height: 30px;
-            border-radius: 2px;
-            background: var(--orange);
-        }
-        
-        .custom-cursor.clicking {
-            width: 8px;
-            height: 8px;
-            background: var(--text);
-        }
-        
-        .cursor-ring.clicking {
-            width: 30px;
-            height: 30px;
-            border-width: 3px;
-        }
-        
-        .cursor-trail {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
-        }
-        
-        .trail-dot {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--orange);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: trailFade 0.8s ease-out forwards;
-            pointer-events: none;
-        }
-        
-        @keyframes trailFade {
-            0% {
-                opacity: 0.6;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-        }
-        
-        .cursor-ripple {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--orange);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 9997;
-            animation: rippleExpand 0.6s ease-out forwards;
-        }
-        
-        @keyframes rippleExpand {
-            0% {
-                width: 20px;
-                height: 20px;
-                opacity: 1;
-            }
-            100% {
-                width: 100px;
-                height: 100px;
-                opacity: 0;
-                border-width: 1px;
-            }
-        }
-        
-        /* Magnetic effect for buttons */
-        .btn-primary {
-            transition: transform 0.3s ease;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Magnetic button effect
-    const magneticButtons = document.querySelectorAll('.btn-primary');
-    magneticButtons.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0, 0)';
-        });
-    });
-}
-
-// Loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Animate hero elements
-    setTimeout(() => {
-        document.querySelector('.hero-content')?.classList.add('visible');
-    }, 200);
+// Ano do rodapé
+document.querySelectorAll('[data-year]').forEach(el => {
+    el.textContent = new Date().getFullYear();
 });
 
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Apply debounce to scroll-heavy functions
-const debouncedActivateNav = debounce(activateNavLink, 100);
-window.addEventListener('scroll', debouncedActivateNav);
-
-// Portfolio Filter Functionality (for portfolio.html)
+// Filtro do portfólio (portfolio.html)
 const filterButtons = document.querySelectorAll('.filter-btn');
 const portfolioItems = document.querySelectorAll('.portfolio-item-full');
 
@@ -584,9 +259,7 @@ if (filterButtons.length > 0 && portfolioItems.length > 0) {
 
         if (emptyState) emptyState.hidden = visible > 0;
         if (resultCount) {
-            resultCount.textContent = visible === 1
-                ? '1 projeto'
-                : `${visible} projetos`;
+            resultCount.textContent = visible === 1 ? '1 projeto' : `${visible} projetos`;
         }
 
         if (updateHistory) {
@@ -606,12 +279,15 @@ if (filterButtons.length > 0 && portfolioItems.length > 0) {
         const countEl = button.querySelector('.filter-count');
         if (countEl) countEl.textContent = count;
 
+        // Categoria sem nenhum case publicado não aparece como opção
+        button.hidden = count === 0;
+
         button.addEventListener('click', () => applyFilter(button.dataset.filter));
     });
 
     // Respeita ?filtro=web ao abrir/compartilhar o link
     const initial = new URLSearchParams(window.location.search).get('filtro');
-    const isKnown = initial && [...filterButtons].some(btn => btn.dataset.filter === initial);
+    const isKnown = initial && [...filterButtons].some(btn => btn.dataset.filter === initial && !btn.hidden);
     applyFilter(isKnown ? initial : 'all', { updateHistory: false });
 }
 
@@ -641,20 +317,43 @@ if (lazyFrames.length > 0) {
     lazyFrames.forEach(frame => frameObserver.observe(frame));
 }
 
-// Phone Mockup Swiper - Dots Animation
-const phoneDots = document.querySelectorAll('.phone-dots .dot');
-const phoneSlides = document.querySelectorAll('.phone-slide');
+// Carrossel do celular: avança sozinho, pausa com o ponteiro/foco em cima e aceita clique nos pontos
+const phone = document.querySelector('.phone-frame');
 
-if (phoneDots.length > 0 && phoneSlides.length > 0) {
-    let currentSlide = 0;
-    const totalSlides = phoneSlides.length;
-    
-    // Sync dots with CSS animation (3s per slide)
-    setInterval(() => {
-        phoneDots.forEach(dot => dot.classList.remove('active'));
-        currentSlide = (currentSlide + 1) % totalSlides;
-        phoneDots[currentSlide].classList.add('active');
-    }, 3000);
+if (phone) {
+    const track = phone.querySelector('.phone-slides');
+    const slides = phone.querySelectorAll('.phone-slide');
+    const dots = phone.querySelectorAll('.phone-dots .dot');
+    let current = 0;
+    let timer = 0;
+
+    const goTo = (index) => {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== current)));
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === current);
+            dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+        });
+    };
+
+    const stop = () => clearInterval(timer);
+    const play = () => {
+        stop();
+        if (!prefersReducedMotion.matches) timer = setInterval(() => goTo(current + 1), 3500);
+    };
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+        goTo(i);
+        play();
+    }));
+
+    phone.addEventListener('pointerenter', stop);
+    phone.addEventListener('pointerleave', play);
+    phone.addEventListener('focusin', stop);
+    phone.addEventListener('focusout', play);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
+
+    goTo(0);
+    play();
 }
-
-console.log('Effore Development - Site carregado com sucesso! 🚀');

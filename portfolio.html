@@ -65,7 +65,7 @@
                             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
                         </svg>
                     </button>
-                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
+                    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navMenu">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -73,6 +73,7 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-progress" aria-hidden="true"></div>
     </nav>
 
     <!-- Portfolio Hero -->
@@ -82,8 +83,7 @@
                 <span class="section-tag">nossos projetos</span>
                 <h1 class="hero-title">Portfólio completo</h1>
                 <p class="hero-subtitle">
-                    Conheça todos os projetos que desenvolvemos com excelência e inovação.<br>
-                    Cada case representa nosso compromisso com qualidade e resultados.
+                    Conheça todos os projetos que desenvolvemos com excelência e inovação. Cada case representa nosso compromisso com qualidade e resultados.
                 </p>
             </div>
         </div>
@@ -119,164 +119,222 @@
 
             <div class="portfolio-grid-full">
                 <!-- Empório Kids -->
-                <article class="portfolio-item-full" data-category="web">
+                <article class="portfolio-item-full window" data-category="web" data-window="emporio-kids / loja">
                     <div class="portfolio-image-full">
                         <img src="Assets/E-CommerceKids.png" alt="Página inicial do e-commerce Empório Kids" loading="lazy" decoding="async">
-                        <div class="portfolio-overlay-full">
-                            <div class="portfolio-info-full">
-                                <span class="portfolio-category">Desenvolvimento Web</span>
-                                <h3>Empório Kids — E-commerce</h3>
-                                <p>Loja completa de moda infantil com vitrine por categoria, busca de produtos, carrinho, área do cliente e ERP integrado ao estoque.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">E-commerce</span>
-                                    <span class="tag">ERP integrado</span>
-                                    <span class="tag">Pagamentos</span>
-                                    <span class="tag">Responsivo</span>
-                                </div>
-                                <div class="portfolio-stats">
-                                    <div class="stat">
-                                        <strong>ERP</strong>
-                                        <span>Estoque sincronizado</span>
-                                    </div>
-                                    <div class="stat">
-                                        <strong>100%</strong>
-                                        <span>Responsivo</span>
-                                    </div>
-                                </div>
-                                <a href="#case-ecommerce" class="portfolio-link">
-                                    Ver o projeto em vídeo
-                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Desenvolvimento Web</span>
+                        <h3>Empório Kids — E-commerce</h3>
+                        <p>Loja completa de moda infantil com vitrine por categoria, busca de produtos, carrinho, área do cliente e ERP integrado ao estoque.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">ERP integrado</span>
+                            <span class="tag">Pagamentos</span>
+                            <span class="tag">Responsivo</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>ERP</strong>
+                                <span>Estoque sincronizado</span>
+                            </div>
+                            <div class="stat">
+                                <strong>100%</strong>
+                                <span>Responsivo</span>
                             </div>
                         </div>
+                        <a href="#case-ecommerce" class="portfolio-link">
+                            Ver o projeto em vídeo
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Style Mens -->
+                <article class="portfolio-item-full window" data-category="web" data-window="stylemens.com.br">
+                    <div class="portfolio-image-full">
+                        <img src="Assets/StyleMens.jpg" alt="Loja virtual Style Mens com vitrines de camisetas, calças e bermudas masculinas" loading="lazy" decoding="async">
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Desenvolvimento Web</span>
+                        <h3>Style Mens — Loja de moda masculina</h3>
+                        <p>E-commerce na Nuvemshop com vitrines por categoria, busca, filtros por cor e tamanho, cálculo de frete por CEP, cupons, desconto no Pix e atendimento pelo WhatsApp.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Nuvemshop</span>
+                            <span class="tag">Frete por CEP</span>
+                            <span class="tag">Pix e parcelamento</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>6</strong>
+                                <span>Categorias de produto</span>
+                            </div>
+                            <div class="stat">
+                                <strong>3x</strong>
+                                <span>Sem juros no cartão</span>
+                            </div>
+                        </div>
+                        <a href="https://stylemens.com.br/" class="portfolio-link" target="_blank" rel="noopener">
+                            Visitar a loja
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Emerson Santucci -->
+                <article class="portfolio-item-full window" data-category="web software" data-window="emersonsantucci.com.br">
+                    <div class="portfolio-image-full">
+                        <img src="Assets/EmersonSantucci.jpg" alt="Página inicial do site do fotógrafo Emerson Santucci com retrato em preto e branco" loading="lazy" decoding="async">
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Desenvolvimento Web</span>
+                        <h3>Emerson Santucci — Fotografia</h3>
+                        <p>Site sob medida para fotógrafo, com portfólio, galeria de eventos atualizada pelo banco de dados, loja de fotos avulsas e em pacotes e área do cliente com login.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Portfólio fotográfico</span>
+                            <span class="tag">Loja de fotos</span>
+                            <span class="tag">Área do cliente</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>Login</strong>
+                                <span>Acesso do cliente às fotos</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Firestore</strong>
+                                <span>Eventos sem mexer no código</span>
+                            </div>
+                        </div>
+                        <a href="https://emersonsantucci.com.br/" class="portfolio-link" target="_blank" rel="noopener">
+                            Visitar o site
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                 </article>
 
                 <!-- SGE -->
-                <article class="portfolio-item-full" data-category="software">
+                <article class="portfolio-item-full window" data-category="software" data-window="sge / dashboard">
                     <div class="portfolio-image-full">
                         <img src="Assets/SGE.jpg" alt="Dashboard do Sistema de Gestão de Estoque com indicadores e gráficos de vendas" loading="lazy" decoding="async">
-                        <div class="portfolio-overlay-full">
-                            <div class="portfolio-info-full">
-                                <span class="portfolio-category">Software Personalizado</span>
-                                <h3>SGE — Sistema de Gestão de Estoque</h3>
-                                <p>ERP sob medida para indústria: controle de produtos, fornecedores, marcas e categorias, com registro de entradas e saídas e dashboard de custo, valor e lucro do estoque.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">ERP</span>
-                                    <span class="tag">Dashboard</span>
-                                    <span class="tag">Controle de estoque</span>
-                                    <span class="tag">Relatórios</span>
-                                </div>
-                                <div class="portfolio-stats">
-                                    <div class="stat">
-                                        <strong>7</strong>
-                                        <span>Módulos de gestão</span>
-                                    </div>
-                                    <div class="stat">
-                                        <strong>Tempo real</strong>
-                                        <span>Indicadores de vendas</span>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Software Personalizado</span>
+                        <h3>SGE — Sistema de Gestão de Estoque</h3>
+                        <p>ERP sob medida para indústria: controle de produtos, fornecedores, marcas e categorias, com registro de entradas e saídas e dashboard de custo, valor e lucro do estoque.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">ERP</span>
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Controle de estoque</span>
+                            <span class="tag">Relatórios</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>7</strong>
+                                <span>Módulos de gestão</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Tempo real</strong>
+                                <span>Indicadores de vendas</span>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Recrutamento e Seleção -->
-                <article class="portfolio-item-full" data-category="software web">
+                <article class="portfolio-item-full window" data-category="software web" data-window="recrutamento / vagas">
                     <div class="portfolio-image-full">
                         <img src="Assets/RecrutamentoSelecao.png" alt="Tela de gerenciamento de vagas da plataforma Effore Recrutamento e Seleção" loading="lazy" decoding="async">
-                        <div class="portfolio-overlay-full">
-                            <div class="portfolio-info-full">
-                                <span class="portfolio-category">Software Personalizado</span>
-                                <h3>Plataforma de Recrutamento e Seleção</h3>
-                                <p>Sistema de gestão de vagas e candidatos com painel de produtividade por período, distribuição por tipo de contratação e módulos de conteúdo para blog e marketing.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Gestão de vagas</span>
-                                    <span class="tag">Banco de candidatos</span>
-                                    <span class="tag">Analytics</span>
-                                    <span class="tag">Multiempresa</span>
-                                </div>
-                                <div class="portfolio-stats">
-                                    <div class="stat">
-                                        <strong>6</strong>
-                                        <span>Módulos integrados</span>
-                                    </div>
-                                    <div class="stat">
-                                        <strong>Painel</strong>
-                                        <span>Métricas em tempo real</span>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Software Personalizado</span>
+                        <h3>Plataforma de Recrutamento e Seleção</h3>
+                        <p>Sistema de gestão de vagas e candidatos com painel de produtividade por período, distribuição por tipo de contratação e módulos de conteúdo para blog e marketing.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Gestão de vagas</span>
+                            <span class="tag">Banco de candidatos</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Multiempresa</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>6</strong>
+                                <span>Módulos integrados</span>
+                            </div>
+                            <div class="stat">
+                                <strong>Painel</strong>
+                                <span>Métricas em tempo real</span>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Catálogo Digital -->
-                <article class="portfolio-item-full" data-category="web">
+                <article class="portfolio-item-full window" data-category="web" data-window="catalogo-digital / demo">
                     <div class="portfolio-image-full">
                         <img src="https://img.youtube.com/vi/UkEOuZDLa6A/hqdefault.jpg" alt="Capa do vídeo de apresentação do catálogo digital interativo" loading="lazy" decoding="async">
-                        <div class="portfolio-overlay-full">
-                            <div class="portfolio-info-full">
-                                <span class="portfolio-category">Desenvolvimento Web</span>
-                                <h3>Catálogo Digital Interativo</h3>
-                                <p>Catálogo de produtos navegável, com categorização, busca avançada e interface pensada para consulta rápida por vendedores e clientes.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Catálogo</span>
-                                    <span class="tag">Busca avançada</span>
-                                    <span class="tag">UX</span>
-                                </div>
-                                <div class="portfolio-stats">
-                                    <div class="stat">
-                                        <strong>Vídeo</strong>
-                                        <span>Demonstração completa</span>
-                                    </div>
-                                </div>
-                                <a href="#case-catalogo" class="portfolio-link">
-                                    Assistir à demonstração
-                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Desenvolvimento Web</span>
+                        <h3>Catálogo Digital Interativo</h3>
+                        <p>Catálogo de produtos navegável, com categorização, busca avançada e interface pensada para consulta rápida por vendedores e clientes.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Catálogo</span>
+                            <span class="tag">Busca avançada</span>
+                            <span class="tag">UX</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>Vídeo</strong>
+                                <span>Demonstração completa</span>
                             </div>
                         </div>
+                        <a href="#case-catalogo" class="portfolio-link">
+                            Assistir à demonstração
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Cartões de contato digital -->
-                <article class="portfolio-item-full" data-category="web mobile">
+                <article class="portfolio-item-full window" data-category="web mobile" data-window="cartao-digital / modelos">
                     <div class="portfolio-image-full">
                         <img src="Assets/Teste3.jpg" alt="Modelo de cartão de contato digital com estilo neo-brutalista" loading="lazy" decoding="async">
-                        <div class="portfolio-overlay-full">
-                            <div class="portfolio-info-full">
-                                <span class="portfolio-category">Desenvolvimento Web</span>
-                                <h3>Cartões de Contato Digital</h3>
-                                <p>Coleção de páginas de links mobile-first, do glassmorphism ao neo-brutalismo, com vitrine de produtos, horário de funcionamento e status de atendimento.</p>
-                                <div class="portfolio-tags">
-                                    <span class="tag">Link in bio</span>
-                                    <span class="tag">Mobile-first</span>
-                                    <span class="tag">Personalizável</span>
-                                </div>
-                                <div class="portfolio-stats">
-                                    <div class="stat">
-                                        <strong>5</strong>
-                                        <span>Modelos prontos</span>
-                                    </div>
-                                    <div class="stat">
-                                        <strong>100%</strong>
-                                        <span>Personalizável</span>
-                                    </div>
-                                </div>
-                                <a href="#modelos" class="portfolio-link">
-                                    Ver os 5 modelos
-                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-category">Desenvolvimento Web</span>
+                        <h3>Cartões de Contato Digital</h3>
+                        <p>Coleção de páginas de links mobile-first, do glassmorphism ao neo-brutalismo, com vitrine de produtos, horário de funcionamento e status de atendimento.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Link in bio</span>
+                            <span class="tag">Mobile-first</span>
+                            <span class="tag">Personalizável</span>
+                        </div>
+                        <div class="portfolio-stats">
+                            <div class="stat">
+                                <strong>5</strong>
+                                <span>Modelos prontos</span>
+                            </div>
+                            <div class="stat">
+                                <strong>100%</strong>
+                                <span>Personalizável</span>
                             </div>
                         </div>
+                        <a href="#modelos" class="portfolio-link">
+                            Ver os 5 modelos
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -300,8 +358,7 @@
                 <span class="section-tag">projeto destacado</span>
                 <h2 class="section-title">Catálogo digital interativo</h2>
                 <p class="section-subtitle">
-                    Assista ao vídeo completo do nosso catálogo desenvolvido,<br>
-                    uma solução moderna e intuitiva para apresentação de produtos.
+                    Assista ao vídeo completo do nosso catálogo desenvolvido, uma solução moderna e intuitiva para apresentação de produtos.
                 </p>
             </div>
             
@@ -360,8 +417,7 @@
                 <span class="section-tag">case de sucesso</span>
                 <h2 class="section-title">Veja nosso trabalho em ação</h2>
                 <p class="section-subtitle">
-                    Conheça um dos nossos projetos de e-commerce completo,<br>
-                    desenvolvido com tecnologia de ponta e design inovador.
+                    Conheça um dos nossos projetos de e-commerce completo, desenvolvido com tecnologia de ponta e design inovador.
                 </p>
             </div>
             
@@ -432,8 +488,7 @@
                 <span class="section-tag">templates prontos</span>
                 <h2 class="section-title">Cartão de contato digital</h2>
                 <p class="section-subtitle">
-                    Escolha o modelo perfeito para suas páginas de links.<br>
-                    Todos os modelos são personalizáveis e totalmente responsivos.
+                    Escolha o modelo perfeito para suas páginas de links. Todos os modelos são personalizáveis e totalmente responsivos.
                 </p>
             </div>
 
@@ -672,7 +727,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -682,24 +737,24 @@
                         Transformando ideias em soluções digitais inovadoras
                     </p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M4.98 3.5C4.98 4.881 3.87 6 2.5 6S.02 4.881.02 3.5C.02 2.12 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v12h5V8zm7.982 0H8.014v12h4.969v-6.293c0-4.648 6.015-5.031 6.015 0V20H24v-7.808c0-7.848-8.905-7.564-11.018-3.7V8z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.165 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <a href="https://www.instagram.com/efforedevelopment/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path d="M10 0C7.284 0 6.944.012 5.877.06 4.813.11 4.086.278 3.45.525a4.902 4.902 0 00-1.772 1.153A4.902 4.902 0 00.525 3.45C.278 4.086.109 4.813.06 5.877.012 6.944 0 7.284 0 10s.012 3.056.06 4.123c.05 1.064.218 1.791.465 2.427a4.902 4.902 0 001.153 1.772 4.902 4.902 0 001.772 1.153c.636.247 1.363.415 2.427.465C6.944 19.988 7.284 20 10 20s3.056-.012 4.123-.06c1.064-.05 1.791-.218 2.427-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.247-.636.415-1.363.465-2.427.048-1.067.06-1.407.06-4.123s-.012-3.056-.06-4.123c-.05-1.064-.218-1.791-.465-2.427a4.902 4.902 0 00-1.153-1.772A4.902 4.902 0 0016.55.525C15.914.278 15.187.109 14.123.06 13.056.012 12.716 0 10 0zm0 1.802c2.67 0 2.987.01 4.041.059.975.045 1.504.207 1.857.344.467.182.8.398 1.15.748.35.35.566.683.748 1.15.137.353.3.882.344 1.857.048 1.054.058 1.37.058 4.04 0 2.671-.01 2.987-.058 4.042-.045.975-.207 1.504-.344 1.857a3.097 3.097 0 01-.748 1.15c-.35.35-.683.566-1.15.748-.353.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-.975-.045-1.504-.207-1.857-.344a3.097 3.097 0 01-1.15-.748 3.098 3.098 0 01-.748-1.15c-.137-.353-.3-.882-.344-1.857-.048-1.055-.058-1.37-.058-4.041 0-2.67.01-2.986.058-4.04.045-.975.207-1.504.344-1.857.182-.467.398-.8.748-1.15.35-.35.683-.566 1.15-.748.353-.137.882-.3 1.857-.344 1.054-.048 1.37-.058 4.04-.058zM10 13.333A3.333 3.333 0 1110 6.667a3.333 3.333 0 010 6.666zm0-8.468a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm6.538-.203a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/5511942138664" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                        <a href="tel:+5511942138664" class="social-link" aria-label="Ligar para a Effore">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path d="M2.5 4.16667C2.5 3.24619 3.24619 2.5 4.16667 2.5H6.89936C7.25806 2.5 7.57651 2.72953 7.68993 3.06981L8.93808 6.81434C9.06926 7.20777 8.89115 7.63776 8.52025 7.82322L6.63918 8.76375C7.55771 10.8009 9.19912 12.4423 11.2363 13.3608L12.1768 11.4798C12.3623 11.1089 12.7922 10.9307 13.1857 11.0619L16.9302 12.3101C17.2705 12.4235 17.5 12.7419 17.5 13.1006V15.8333C17.5 16.7538 16.7538 17.5 15.8333 17.5H15C8.09644 17.5 2.5 11.9036 2.5 5V4.16667Z"/>
                             </svg>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Serviços</h4>
@@ -707,33 +762,32 @@
                             <li><a href="index.html#services">Desenvolvimento Web</a></li>
                             <li><a href="index.html#services">Inteligência Artificial</a></li>
                             <li><a href="index.html#services">Softwares Personalizados</a></li>
-                            <li><a href="index.html#services">Consultoria</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
                         <h4>Empresa</h4>
                         <ul>
-                            <li><a href="index.html#about">Sobre Nós</a></li>
+                            <li><a href="index.html#about">Sobre nós</a></li>
                             <li><a href="portfolio.html">Portfólio</a></li>
                             <li><a href="index.html#contact">Contato</a></li>
-                            <li><a href="#">Carreiras</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="footer-column">
-                        <h4>Legal</h4>
+                        <h4>Atendimento</h4>
                         <ul>
-                            <li><a href="#">Privacidade</a></li>
-                            <li><a href="#">Termos de Uso</a></li>
-                            <li><a href="#">Cookies</a></li>
+                            <li><a href="mailto:efforedevelopment@gmail.com">E-mail</a></li>
+                            <li><a href="https://wa.me/5511942138664" target="_blank" rel="noopener">WhatsApp</a></li>
+                            <li><a href="https://www.instagram.com/efforedevelopment/" target="_blank" rel="noopener">Instagram</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Effore Development. Todos os direitos reservados.</p>
+                <p>&copy; <span data-year>2026</span> Effore Development. Todos os direitos reservados.</p>
+                <a href="#" class="back-to-top">Voltar ao topo</a>
             </div>
         </div>
     </footer>
