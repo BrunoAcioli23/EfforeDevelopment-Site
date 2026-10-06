@@ -26,6 +26,20 @@ window.PATYNHAS = {
     cep: "00000-000",
   },
 
+  /*
+    Banco de dados (Supabase). Veja o passo a passo no README.
+    Com isto preenchido, a página de agendar mostra os horários livres de
+    verdade, o agendamento fica confirmado na hora e aparece no painel.
+    Enquanto estiver vazio, o agendamento continua sendo pelo WhatsApp e o
+    painel (admin/) abre em modo demonstração.
+    A chave pública ("anon public") pode ficar aqui: o banco é protegido
+    pelas regras de segurança do arquivo supabase/schema.sql.
+  */
+  supabase: {
+    url: "",          // ex.: "https://abcdefgh.supabase.co"
+    chavePublica: "", // Project Settings > API > anon public
+  },
+
   // Mensagem que já vem escrita quando a pessoa toca em "Agendar pelo WhatsApp".
   mensagemPadrao: "Olá, Patynhas Pet Mel! Gostaria de agendar um horário para o meu pet.",
 

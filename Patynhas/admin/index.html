@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel | Patynhas Pet Mel</title>
+  <meta name="theme-color" content="#FFF8F6">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/logo-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-agenda" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V7A1.5 1.5 0 0 1 5 5.5zM3.5 10h17M8 3.5v4M16 3.5v4"/></symbol>
+    <symbol id="i-clientes" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><path d="M16 4.8a3.3 3.3 0 0 1 0 6.4M18 14.8c2 .7 3.2 2.4 3.5 5.2"/></g></symbol>
+    <symbol id="i-resumo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></g></symbol>
+    <symbol id="i-horarios" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+    <symbol id="i-servicos" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="7" r="2.6"/><circle cx="6.5" cy="17" r="2.6"/><path d="M8.7 8.4L20 16M8.7 15.6L20 8"/></g></symbol>
+    <symbol id="i-ajustes" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></g></symbol>
+    <symbol id="i-sair" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M14 4.5h4a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-4M10 16l-4-4 4-4M6 12h9"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-esq" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.5 6l-6 6 6 6"/></symbol>
+    <symbol id="i-dir" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.5 6l6 6-6 6"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-busca" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4.5"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M7 7l10 10M17 7L7 17"/></symbol>
+    <symbol id="i-alerta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 4l9 16H3z" stroke-linejoin="round"/><path d="M12 10v4M12 17v.5"/></g></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+    <symbol id="i-pata" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4"><ellipse cx="22" cy="40" rx="9" ry="12" transform="rotate(-20 22 40)"/><ellipse cx="39" cy="22" rx="9" ry="12.5"/><ellipse cx="61" cy="22" rx="9" ry="12.5"/><ellipse cx="78" cy="40" rx="9" ry="12" transform="rotate(20 78 40)"/><path d="M50 46c-9 0-15 8-21 17-5 7-6 14 0 18 5 3 11 1 21 1s16 2 21-1c6-4 5-11 0-18-6-9-12-17-21-17z"/></g></symbol>
+  </svg>
+
+  <!-- ============ ENTRAR ============ -->
+  <main class="entrar" data-tela="entrar" hidden>
+    <div class="entrar__caixa">
+      <img src="../assets/logo-transparente.png" alt="Patynhas Pet Mel Groomer" width="120" height="120">
+      <h1>Painel da loja</h1>
+      <p class="entrar__demo" data-demo-info hidden>
+        <strong>Modo demonstração.</strong> O banco de dados ainda não foi configurado, então o painel
+        abre com clientes e agendamentos de exemplo, salvos só neste navegador.
+      </p>
+      <form data-form-entrar novalidate>
+        <label class="campo" data-campo-real><span>E-mail</span><input type="email" name="email" autocomplete="username" required></label>
+        <label class="campo" data-campo-real><span>Senha</span><input type="password" name="senha" autocomplete="current-password" required></label>
+        <p class="erro-form" data-erro-entrar role="alert" hidden></p>
+        <button class="bt" type="submit" data-bt-entrar>Entrar</button>
+      </form>
+      <a href="../index.html" class="dica">Voltar para o site</a>
+    </div>
+  </main>
+
+  <!-- ============ PAINEL ============ -->
+  <div class="app" data-tela="app" hidden>
+    <aside class="lateral">
+      <a class="marca" href="#agenda">
+        <img src="../assets/logo-mini.png" alt="" width="42" height="42">
+        <span><strong>Patynhas Pet Mel</strong><small>Painel da loja</small></span>
+      </a>
+      <nav class="nav" aria-label="Seções do painel" data-nav>
+        <a href="#agenda"><svg aria-hidden="true"><use href="#i-agenda"/></svg>Agenda</a>
+        <a href="#clientes"><svg aria-hidden="true"><use href="#i-clientes"/></svg>Clientes</a>
+        <a href="#resumo"><svg aria-hidden="true"><use href="#i-resumo"/></svg>Resumo</a>
+        <a href="#horarios"><svg aria-hidden="true"><use href="#i-horarios"/></svg>Horários</a>
+        <a href="#servicos"><svg aria-hidden="true"><use href="#i-servicos"/></svg>Serviços</a>
+        <a href="#ajustes"><svg aria-hidden="true"><use href="#i-ajustes"/></svg>Ajustes</a>
+      </nav>
+      <div class="lateral__fim">
+        <p class="lateral__email" data-email></p>
+        <a class="bt bt--linha bt--pequeno" href="../index.html" target="_blank" rel="noopener">Ver o site</a>
+        <button class="bt bt--leve bt--pequeno" type="button" data-sair><svg aria-hidden="true"><use href="#i-sair"/></svg>Sair</button>
+      </div>
+    </aside>
+
+    <main class="principal">
+      <header class="barra">
+        <a class="barra__marca" href="#agenda" aria-label="Agenda"><img src="../assets/logo-mini.png" alt="" width="36" height="36"></a>
+        <h1 data-titulo>Agenda</h1>
+        <div data-acoes-barra></div>
+      </header>
+      <div class="aviso-demo" data-aviso-demo hidden>
+        <span><strong>Modo demonstração.</strong> Dados de exemplo, salvos só neste navegador. Configure o Supabase para usar de verdade.</span>
+        <button class="bt bt--linha bt--pequeno" type="button" data-reiniciar-demo>Restaurar exemplos</button>
+      </div>
+      <section data-secao="agenda" hidden></section>
+      <section data-secao="clientes" hidden></section>
+      <section data-secao="resumo" hidden></section>
+      <section data-secao="horarios" hidden></section>
+      <section data-secao="servicos" hidden></section>
+      <section data-secao="ajustes" hidden></section>
+    </main>
+
+    <nav class="abas" aria-label="Seções do painel" data-nav>
+      <a href="#agenda"><svg aria-hidden="true"><use href="#i-agenda"/></svg>Agenda</a>
+      <a href="#clientes"><svg aria-hidden="true"><use href="#i-clientes"/></svg>Clientes</a>
+      <a href="#resumo"><svg aria-hidden="true"><use href="#i-resumo"/></svg>Resumo</a>
+      <a href="#horarios"><svg aria-hidden="true"><use href="#i-horarios"/></svg>Horários</a>
+      <a href="#ajustes"><svg aria-hidden="true"><use href="#i-ajustes"/></svg>Mais</a>
+    </nav>
+  </div>
+
+  <dialog class="janela" data-janela></dialog>
+  <div class="avisos" data-avisos aria-live="polite"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="js/nucleo.js"></script>
+  <script src="js/agenda.js"></script>
+  <script src="js/novo-agendamento.js"></script>
+  <script src="js/clientes.js"></script>
+  <script src="js/resumo.js"></script>
+  <script src="js/horarios.js"></script>
+  <script src="js/servicos.js"></script>
+  <script src="js/ajustes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

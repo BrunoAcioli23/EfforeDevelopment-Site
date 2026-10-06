@@ -68,9 +68,8 @@
   }
 
   /* ---------- Horários ---------- */
-
-  var horarios = {};
-  (C.horarios || []).forEach(function (h) { horarios[h.dia] = h; });
+  /* Vêm do config.js; com o banco configurado, são trocados pelos do painel
+     (que podem ter mais de uma faixa por dia, ex.: pausa para o almoço). */
 
   function minutos(hhmm) {
     var p = hhmm.split(":");
@@ -85,52 +84,65 @@
   var agora = new Date();
   var hoje = agora.getDay();
 
-  var tbody = $("[data-horarios]");
-  if (tbody) {
-    ORDEM_SEMANA.forEach(function (d) {
-      var tr = document.createElement("tr");
-      var h = horarios[d];
-      if (d === hoje) tr.className = "is-hoje";
-      if (!h) tr.className += " is-fechado";
-      var th = document.createElement("th");
-      th.scope = "row";
-      th.textContent = capitalizar(DIAS[d]) + (d === hoje ? " (hoje)" : "");
-      var td = document.createElement("td");
-      td.textContent = h ? horaBonita(h.abre) + " às " + horaBonita(h.fecha) : "Fechado";
-      tr.appendChild(th);
-      tr.appendChild(td);
-      tbody.appendChild(tr);
+  function exibirHorarios(faixas) {
+    var porDia = {};
+    faixas.forEach(function (f) {
+      (porDia[f.dia] = porDia[f.dia] || []).push({ abre: f.abre.slice(0, 5), fecha: f.fecha.slice(0, 5) });
     });
-  }
+    Object.keys(porDia).forEach(function (d) { porDia[d].sort(function (a, b) { return a.abre < b.abre ? -1 : 1; }); });
 
-  function proximaAbertura() {
-    for (var i = 1; i <= 7; i++) {
-      var d = (hoje + i) % 7;
-      if (horarios[d]) {
-        var quando = i === 1 ? "amanhã" : DIAS[d];
-        return "Abre " + quando + " às " + horaBonita(horarios[d].abre);
-      }
+    var tbody = $("[data-horarios]");
+    if (tbody) {
+      tbody.innerHTML = "";
+      ORDEM_SEMANA.forEach(function (d) {
+        var tr = document.createElement("tr");
+        var lista = porDia[d];
+        if (d === hoje) tr.className = "is-hoje";
+        if (!lista) tr.className += " is-fechado";
+        var th = document.createElement("th");
+        th.scope = "row";
+        th.textContent = capitalizar(DIAS[d]) + (d === hoje ? " (hoje)" : "");
+        var td = document.createElement("td");
+        td.textContent = lista
+          ? lista.map(function (f) { return horaBonita(f.abre) + " às " + horaBonita(f.fecha); }).join(" e ")
+          : "Fechado";
+        tr.appendChild(th);
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+      });
     }
-    return "";
-  }
 
-  var status = $("[data-status]");
-  if (status && C.horarios && C.horarios.length) {
-    var hHoje = horarios[hoje];
+    var status = $("[data-status]");
+    if (!status || !faixas.length) return;
     var m = agora.getHours() * 60 + agora.getMinutes();
+    var deHoje = porDia[hoje] || [];
+    var agoraAberto = deHoje.filter(function (f) { return m >= minutos(f.abre) && m < minutos(f.fecha); })[0];
+    var maisTarde = deHoje.filter(function (f) { return m < minutos(f.abre); })[0];
     var texto;
-    if (hHoje && m >= minutos(hHoje.abre) && m < minutos(hHoje.fecha)) {
-      texto = "Aberto agora, até as " + horaBonita(hHoje.fecha);
+    status.classList.remove("is-aberto");
+    if (agoraAberto) {
+      texto = "Aberto agora, até as " + horaBonita(agoraAberto.fecha);
       status.classList.add("is-aberto");
-    } else if (hHoje && m < minutos(hHoje.abre)) {
-      texto = "Abre hoje às " + horaBonita(hHoje.abre);
+    } else if (maisTarde) {
+      texto = (deHoje[0] === maisTarde ? "Abre hoje às " : "Volta hoje às ") + horaBonita(maisTarde.abre);
     } else {
-      texto = "Fechado agora. " + proximaAbertura();
+      texto = "Fechado agora.";
+      for (var i = 1; i <= 7; i++) {
+        var d = (hoje + i) % 7;
+        if (porDia[d]) { texto += " Abre " + (i === 1 ? "amanhã" : DIAS[d]) + " às " + horaBonita(porDia[d][0].abre); break; }
+      }
     }
     status.textContent = texto;
     status.hidden = false;
   }
 
+  exibirHorarios(C.horarios || []);
+
+  if (window.PatynhasAPI && window.PatynhasAPI.configurado()) {
+    window.PatynhasAPI.criar().then(function (api) { return api.horariosSemana(); }).then(function (l) {
+      exibirHorarios(l.map(function (f) { return { dia: f.dia_semana, abre: f.abre, fecha: f.fecha }; }));
+    }).catch(function (e) { console.warn("[Patynhas] Horários do banco indisponíveis; usando os do config.js.", e); });
+  }
   /* A galeria e o espaço ficam em js/fotos.js */
 
   /* ---------- Menu e topo ---------- */
