@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patynhas Pet Mel Groomer | Banho e tosa com carinho</title>
+  <meta name="description" content="Banho e tosa feitos com calma e carinho. Tosa higiênica, na máquina e na tesoura, hidratação e cuidados extras. Agende pelo WhatsApp.">
+  <meta name="theme-color" content="#FFF8F6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Patynhas Pet Mel Groomer">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Great+Vibes&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/fotos.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Símbolos reutilizados (coração e patinha) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-heart" viewBox="0 0 24 22">
+      <path d="M12 21s-7.5-4.6-10-9.3C.3 8.4 2 4 6 4c2.3 0 3.6 1.3 6 3.6C14.4 5.3 15.7 4 18 4c4 0 5.7 4.4 4 7.7C19.5 16.4 12 21 12 21z"/>
+    </symbol>
+    <symbol id="i-paw" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="3.2">
+        <ellipse cx="22" cy="40" rx="9" ry="12" transform="rotate(-20 22 40)"/>
+        <ellipse cx="39" cy="22" rx="9" ry="12.5"/>
+        <ellipse cx="61" cy="22" rx="9" ry="12.5"/>
+        <ellipse cx="78" cy="40" rx="9" ry="12" transform="rotate(20 78 40)"/>
+        <path d="M50 46c-9 0-15 8-21 17-5 7-6 14 0 18 5 3 11 1 21 1s16 2 21-1c6-4 5-11 0-18-6-9-12-17-21-17z"/>
+      </g>
+      <path style="fill:var(--rose-400)" d="M50 73s-7-4.3-9.2-8.6C39.2 61.3 41 57 44.6 57c2 0 3.3 1.2 5.4 3.3 2.1-2.1 3.4-3.3 5.4-3.3 3.6 0 5.4 4.3 3.8 7.4C57 68.7 50 73 50 73z"/>
+    </symbol>
+    <symbol id="i-pegada" viewBox="0 0 100 100">
+      <ellipse cx="20" cy="42" rx="10" ry="13" transform="rotate(-20 20 42)"/>
+      <ellipse cx="39" cy="22" rx="10" ry="13.5"/>
+      <ellipse cx="61" cy="22" rx="10" ry="13.5"/>
+      <ellipse cx="80" cy="42" rx="10" ry="13" transform="rotate(20 80 42)"/>
+      <path d="M50 47c-10 0-16 8-22 17-5 7-6 15 0 19 5 3 12 1 22 1s17 2 22-1c6-4 5-12 0-19-6-9-12-17-22-17z"/>
+    </symbol>
+    <symbol id="i-agenda" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V7A1.5 1.5 0 0 1 5 5.5zM3.5 10h17M8 3.5v4M16 3.5v4"/>
+      <path d="M12 18.2s-3.2-2-4.2-3.9c-.7-1.4.1-3.2 1.7-3.2 1 0 1.6.6 2.5 1.5.9-.9 1.5-1.5 2.5-1.5 1.6 0 2.4 1.8 1.7 3.2-1 1.9-4.2 3.9-4.2 3.9z"/>
+    </symbol>
+    <symbol id="i-voltar" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.5 6l-6 6 6 6"/>
+    </symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="i-cao" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 17c7-5 17-5 24 0 5 4 7 10 7 17 0 12-8 19-19 19s-19-7-19-19c0-7 2-13 7-17z"/>
+        <path d="M20 17c-7-3-14 1-15 10-1 7 3 12 9 11"/>
+        <path d="M44 17c7-3 14 1 15 10 1 7-3 12-9 11"/>
+        <path d="M32 44v3m0 0c-1 2-3 3-5 3m5-3c1 2 3 3 5 3"/>
+      </g>
+      <ellipse cx="25" cy="32" rx="2.2" ry="2.6" fill="currentColor"/>
+      <ellipse cx="39" cy="32" rx="2.2" ry="2.6" fill="currentColor"/>
+      <ellipse cx="32" cy="41" rx="4" ry="3" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-gato" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 27l-2-18 13 9c4-1.5 10-1.5 14 0l13-9-2 18c3 5 3 11 0 16-4 7-10 10-18 10s-14-3-18-10c-3-5-3-11 0-16z"/>
+        <path d="M5 37l12 1M5 44l12-2M59 37l-12 1M59 44l-12-2"/>
+        <path d="M32 44v2m0 0c-1 2-3 3-5 2m5-2c1 2 3 3 5 2"/>
+      </g>
+      <ellipse cx="24.5" cy="34" rx="2.2" ry="3" fill="currentColor"/>
+      <ellipse cx="39.5" cy="34" rx="2.2" ry="3" fill="currentColor"/>
+      <path d="M32 44.5s-3.2-2-3.6-3.4c-.3-1 .3-1.8 1.2-1.8.8 0 1.5.5 2.4 1.3.9-.8 1.6-1.3 2.4-1.3.9 0 1.5.8 1.2 1.8-.4 1.4-3.6 3.4-3.6 3.4z" fill="currentColor"/>
+    </symbol>
+    <!-- Ambientes do espaço (usados enquanto não há fotos) -->
+    <symbol id="i-recepcao" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 31h38M9 31v11M39 31v11M13 27h22a11 11 0 0 0-22 0zM24 13v3M21 13h6"/>
+      </g>
+    </symbol>
+    <symbol id="i-banho" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 25h38v3a10 10 0 0 1-10 10H15A10 10 0 0 1 5 28zM9 25V13a4 4 0 0 1 8 0M14 38l-2 4M34 38l2 4"/>
+        <circle cx="29" cy="17" r="3"/><circle cx="36" cy="11" r="2.2"/><circle cx="25" cy="9" r="1.8"/>
+      </g>
+    </symbol>
+    <symbol id="i-tosa" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="14" r="5"/><circle cx="12" cy="34" r="5"/>
+        <path d="M16.5 16.5L41 33M16.5 31.5L41 15"/>
+      </g>
+    </symbol>
+    <symbol id="i-secagem" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11h17a9 9 0 0 1 0 18H9a3 3 0 0 1-3-3V14a3 3 0 0 1 3-3zM15 29l-3 13h7l3-13"/>
+        <path d="M38 15h5M38 20h7M38 25h5"/>
+      </g>
+    </symbol>
+    <symbol id="i-espera" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 30c0-6 5-10 19-10s19 4 19 10v6H5zM9 36v4M39 36v4M5 30c5 2 33 2 38 0"/>
+        <path d="M24 15s-3-1.9-3.9-3.6c-.6-1.2.1-2.7 1.4-2.7.9 0 1.5.5 2.5 1.4 1-.9 1.6-1.4 2.5-1.4 1.3 0 2 1.5 1.4 2.7C27 13.1 24 15 24 15z"/>
+      </g>
+    </symbol>    <symbol id="i-whats" viewBox="0 0 24 24">
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/>
+    </symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24">
+      <path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21.9 8c-.1-1.6-.4-3-1.6-4.2S17.6 2.2 16 2.1c-1.6-.1-6.5-.1-8.1 0-1.6.1-3 .4-4.2 1.6S2.2 6.4 2.1 8C2 9.6 2 14.4 2.1 16c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.5.1 8.1 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.4 0-8zm-2.1 9.8a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7a3.3 3.3 0 0 1 1.9-1.9c1.3-.5 4.3-.4 5.7-.4s4.4-.1 5.7.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7z"/>
+    </symbol>
+  </svg>
+
+  <header class="topo" data-topo>
+    <div class="topo__inner">
+      <a class="marca" href="#inicio" aria-label="Patynhas Pet Mel Groomer, voltar ao início">
+        <img src="assets/logo-mini.png" alt="" width="52" height="52">
+        <span class="marca__nome">Patynhas <span>Pet Mel</span></span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
+        <span class="menu-btn__barras" aria-hidden="true"></span>
+        <span class="sr">Abrir menu</span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Principal" data-menu>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn--mini" href="agendar.html">
+          <svg aria-hidden="true"><use href="#i-agenda"/></svg>
+          Agendar horário
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ INÍCIO: texto + a asa da borboleta com a logo ============ -->
+    <section class="hero" id="inicio" data-hero>
+      <!-- Bolhas de sabão: sobem devagar e estouram ao toque -->
+      <canvas class="bolhas" data-bolhas aria-hidden="true"></canvas>
+
+      <div class="hero__grade">
+        <div class="hero__texto-col">
+          <h1>Banho e tosa com carinho</h1>
+          <p class="hero__texto">
+            Cada banho é feito sem pressa, com produtos próprios para pets e atenção ao
+            jeitinho de cada um. Seu pet volta pra casa limpinho, tranquilo e lindo.
+          </p>
+          <div class="hero__acoes">
+            <a class="btn" href="agendar.html">
+              <svg aria-hidden="true"><use href="#i-agenda"/></svg>
+              Agendar horário
+            </a>
+            <a class="btn btn--linha" href="#servicos">Ver serviços</a>
+          </div>
+          <p class="status" data-status hidden></p>
+        </div>
+
+        <div class="hero__arte">
+          <div class="asa">
+            <svg class="asa__contorno" viewBox="0 0 520 640" preserveAspectRatio="none" aria-hidden="true">
+              <path pathLength="1" d="M97.5 615C44.2 470 44.2 200 132.6 95C202.8 15 331.5 8 390 45C430.3 80 413.4 120 448.5 135C500.5 160 504.4 250 481 300C507 330 507 420 488.8 470C471.9 540 413.4 575 331.5 585C308.1 610 273 628 243.1 605C202.8 615 144.3 625 97.5 615Z"/>
+            </svg>
+
+            <!-- Corpinho e antenas da borboleta, como na logo -->
+            <svg class="asa__corpo" viewBox="0 0 90 330" aria-hidden="true">
+              <defs>
+                <linearGradient id="g-corpo" x1="0" x2="1">
+                  <stop offset="0" stop-color="#F0C2BC"/>
+                  <stop offset=".55" stop-color="#D99089"/>
+                  <stop offset="1" stop-color="#B9706A"/>
+                </linearGradient>
+              </defs>
+              <g class="asa__antena asa__antena--1">
+                <path d="M56 120C52 80 36 52 14 30" fill="none" stroke="#D3918B" stroke-width="2" stroke-linecap="round"/>
+                <use href="#i-heart" x="4" y="19" width="20" height="18" fill="#E7A39D"/>
+              </g>
+              <g class="asa__antena asa__antena--2">
+                <path d="M60 119C62 80 60 45 50 16" fill="none" stroke="#D3918B" stroke-width="2" stroke-linecap="round"/>
+                <use href="#i-heart" x="40" y="4" width="20" height="18" fill="#E7A39D"/>
+              </g>
+              <ellipse cx="60" cy="134" rx="9" ry="14" fill="url(#g-corpo)"/>
+              <path d="M53 150C50 190 60 260 82 322C80 260 72 190 68 150Z" fill="url(#g-corpo)"/>
+            </svg>
+
+            <!-- A logo, escrita dentro da asa -->
+            <div class="logo-asa" role="img" aria-label="Patynhas Pet Mel Groomer">
+              <svg class="logo-asa__floreio" viewBox="0 0 220 34" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <path pathLength="1" d="M107 21s-3 3-9 3c-12 0-18-7-34-10-22-4-34 8-56 8-3-6 4-10 7-5"/>
+                  <path pathLength="1" d="M113 21s3 3 9 3c12 0 18-7 34-10 22-4 34 8 56 8 3-6-4-10-7-5"/>
+                </g>
+                <use class="logo-asa__coracao" href="#i-heart" x="101" y="3" width="18" height="16" fill="none" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              <span class="logo-asa__script" aria-hidden="true">Patynhas</span>
+              <span class="logo-asa__nome" aria-hidden="true">
+                <span class="logo-asa__pet">Pet</span><span class="logo-asa__mel">Mel</span><svg class="logo-asa__laco"><use href="#i-heart"/></svg>
+              </span>
+              <span class="logo-asa__groomer" aria-hidden="true">
+                <svg><use href="#i-heart"/></svg>GROOMER<svg><use href="#i-heart"/></svg>
+              </span>
+              <svg class="logo-asa__pata" aria-hidden="true"><use href="#i-paw"/></svg>
+              <svg class="logo-asa__floreio logo-asa__floreio--base" viewBox="0 0 220 34" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <path pathLength="1" d="M107 13s-3-3-9-3c-12 0-18 7-34 10-22 4-34-8-56-8-3 6 4 10 7 5"/>
+                  <path pathLength="1" d="M113 13s3-3 9-3c12 0 18 7 34 10 22 4 34-8 56-8 3 6-4 10-7 5"/>
+                </g>
+                <use href="#i-heart" x="102" y="17" width="16" height="14" style="fill:var(--rose-400)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section class="secao" id="servicos" aria-labelledby="t-servicos">
+      <div class="secao__inner">
+        <header class="secao__cabeca">
+          <h2 id="t-servicos">Serviços</h2>
+          <p>
+            O valor depende do porte, da pelagem e de como o pelo está. Mande uma foto do
+            seu pet pelo WhatsApp e respondemos com o orçamento.
+          </p>
+        </header>
+
+        <ul class="cardapio">
+          <li>
+            <h3>Banho</h3>
+            <p>Shampoo e condicionador escolhidos para o tipo de pelo, secagem cuidadosa e escovação.</p>
+          </li>
+          <li>
+            <h3>Tosa higiênica</h3>
+            <p>Acerto da região íntima, da barriga e das patinhas, para mais conforto e higiene no dia a dia.</p>
+          </li>
+          <li>
+            <h3>Tosa na máquina</h3>
+            <p>Pelo uniforme e fácil de cuidar em casa, na altura que você preferir.</p>
+          </li>
+          <li>
+            <h3>Tosa na tesoura</h3>
+            <p>Acabamento feito à mão, para manter o padrão da raça ou um visual mais natural.</p>
+          </li>
+          <li>
+            <h3>Hidratação</h3>
+            <p>Tratamento para pelos ressecados ou embaraçados, que devolve maciez e brilho.</p>
+          </li>
+          <li>
+            <h3>Cuidados extras</h3>
+            <p>Corte de unhas, limpeza de ouvidos, escovação de dentes e retirada de subpelo.</p>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section class="secao secao--rosa" id="como-funciona" aria-labelledby="t-como">
+      <div class="secao__inner">
+        <header class="secao__cabeca">
+          <h2 id="t-como">Como funciona</h2>
+          <p>Do primeiro “oi” até a hora de buscar, em quatro passos.</p>
+        </header>
+
+        <div class="passos-area" data-passos>
+        <!-- Trilha de patinhas que acompanha a rolagem -->
+        <div class="trilha" aria-hidden="true" data-trilha>
+          <span class="trilha__base"></span>
+          <span class="trilha__cheia"></span>
+        </div>
+        <ol class="passos">
+          <li>
+            <h3>Chame no WhatsApp</h3>
+            <p>Conte o porte e a raça do seu pet, ou mande uma foto. Combinamos o serviço, o valor e o horário.</p>
+          </li>
+          <li>
+            <h3>Traga seu pet no horário</h3>
+            <p>Traga a carteirinha de vacinação em dia e conte se ele tem alergia, medo ou alguma sensibilidade.</p>
+          </li>
+          <li>
+            <h3>Cuidamos com calma</h3>
+            <p>Banho, secagem e tosa no ritmo do seu pet, com pausas sempre que ele precisar.</p>
+          </li>
+          <li>
+            <h3>Avisamos quando estiver pronto</h3>
+            <p>Você recebe uma mensagem para vir buscar o seu pet cheiroso e arrumado.</p>
+          </li>
+        </ol>
+        </div>
+
+        <a class="btn passos__acao" href="agendar.html">
+          <svg aria-hidden="true"><use href="#i-agenda"/></svg>
+          Agendar horário
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ GALERIA: fotos penduradas num varal ============ -->
+    <section class="secao" id="galeria" aria-labelledby="t-galeria">
+      <div class="secao__inner">
+        <div class="galeria__cabeca">
+          <header class="secao__cabeca">
+            <h2 id="t-galeria">Clientes de quatro patas</h2>
+            <p>Alguns dos pets que passaram por aqui, de banho tomado e laço novo. Toque numa foto para ver maior.</p>
+          </header>
+          <div class="varal__setas" data-varal-setas>
+            <button type="button" class="seta" data-varal-ant aria-label="Fotos anteriores">
+              <svg aria-hidden="true"><use href="#i-voltar"/></svg>
+            </button>
+            <button type="button" class="seta seta--prox" data-varal-prox aria-label="Próximas fotos">
+              <svg aria-hidden="true"><use href="#i-voltar"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="varal" data-varal>
+        <ul class="varal__lista" data-galeria aria-label="Fotos de pets atendidos"></ul>
+      </div>
+
+      <div class="secao__inner">
+        <a class="btn btn--linha galeria__insta" href="#" data-insta-link hidden>
+          <svg aria-hidden="true"><use href="#i-insta"/></svg>
+          <span data-insta-convite>Ver no Instagram</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ NOSSO ESPAÇO: mosaico de fotos do interior ============ -->
+    <section class="secao secao--rosa" id="espaco" aria-labelledby="t-espaco">
+      <div class="secao__inner espaco">
+        <header class="secao__cabeca espaco__cabeca">
+          <h2 id="t-espaco">Nosso espaço</h2>
+          <p>Um cantinho pensado para o pet ficar tranquilo: limpo, cheiroso e sem correria. Venha conhecer antes do primeiro banho.</p>
+          <a class="espaco__link" href="#contato">Ver endereço e horários</a>
+        </header>
+        <ul class="mosaico" data-espaco aria-label="Fotos do nosso espaço"></ul>
+      </div>
+    </section>
+    <!-- ============ DÚVIDAS ============ -->
+    <section class="secao" id="duvidas" aria-labelledby="t-duvidas">
+      <div class="secao__inner duvidas">
+        <header class="secao__cabeca">
+          <h2 id="t-duvidas">Dúvidas frequentes</h2>
+          <p>Não achou sua pergunta? <a href="#contato" data-wa>Chame no WhatsApp</a>.</p>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary>Quanto custa o banho?</summary>
+            <p>Depende do porte, do tamanho do pelo e de como ele está. Um pet de pelo curto sai mais em conta que um de pelo longo e embaraçado. Mande uma foto pelo WhatsApp e passamos o valor certinho.</p>
+          </details>
+          <details>
+            <summary>Preciso agendar?</summary>
+            <p>Sim. Atendemos com hora marcada para que cada pet seja cuidado sem correria e sem ficar muito tempo esperando. <a href="agendar.html">Pedir um horário</a>.</p>
+          </details>
+          <details>
+            <summary>Quanto tempo demora?</summary>
+            <p>Varia com o porte e o serviço. Um banho em pet pequeno costuma levar por volta de uma hora e meia; tosas e pets grandes levam mais. Avisamos por mensagem quando estiver pronto.</p>
+          </details>
+          <details>
+            <summary>O que preciso levar?</summary>
+            <p>A carteirinha de vacinação em dia. Se o seu pet usa alguma medicação, tem alergia ou acabou de passar por cirurgia, conte para nós antes do banho.</p>
+          </details>
+          <details>
+            <summary>Meu pet está com o pelo muito embolado. E agora?</summary>
+            <p>Avaliamos com cuidado antes de começar. Quando desembaraçar causaria dor, a tosa mais curta é a opção mais gentil, e sempre conversamos com você antes de decidir.</p>
+          </details>
+          <details>
+            <summary>Meu pet é medroso ou idoso. Vocês atendem?</summary>
+            <p>Atendemos, sim. Conte pra gente antes: fazemos pausas, respeitamos o tempo dele e, se notarmos estresse, falamos com você antes de continuar.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="secao secao--rosa" id="contato" aria-labelledby="t-contato">
+      <div class="secao__inner contato">
+        <div class="contato__info">
+          <h2 id="t-contato">Venha nos visitar</h2>
+
+          <div class="contato__colunas">
+          <dl class="contato__lista">
+            <div>
+              <dt>Endereço</dt>
+              <dd data-endereco></dd>
+            </div>
+            <div>
+              <dt>WhatsApp</dt>
+              <dd><a href="#contato" data-wa data-telefone></a></dd>
+            </div>
+            <div data-insta-bloco>
+              <dt>Instagram</dt>
+              <dd><a href="#" data-insta-link data-insta-texto></a></dd>
+            </div>
+          </dl>
+
+          <div class="contato__horarios">
+            <h3>Horários</h3>
+            <table class="horarios">
+              <caption class="sr">Horário de atendimento por dia da semana</caption>
+              <tbody data-horarios></tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+
+        <div class="contato__mapa">
+          <iframe data-mapa title="Mapa com a localização do petshop" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__inner">
+      <div class="rodape__logo">
+        <img src="assets/logo-transparente.png" alt="Logo da Patynhas Pet Mel Groomer" width="160" height="160" loading="lazy">
+        <span class="pouso pouso--rodape" aria-hidden="true"></span>
+      </div>
+      <p>Feito com carinho para quem tem quatro patas.</p>
+      <p class="rodape__copy">© <span data-ano>2026</span> Patynhas Pet Mel Groomer</p>
+    </div>
+  </footer>
+
+  <div class="whats-area">
+    <p class="balao" data-balao hidden>
+      Que tal marcar o banho? É só chamar aqui.
+      <button type="button" class="balao__fechar" data-balao-fechar aria-label="Fechar aviso">×</button>
+    </p>
+    <a class="whats-flutuante" href="#contato" data-wa aria-label="Conversar no WhatsApp">
+      <svg aria-hidden="true"><use href="#i-whats"/></svg>
+    </a>
+  </div>
+
+  <!-- A borboletinha que acompanha a visita e pousa nos títulos -->
+  <div class="borboleta" aria-hidden="true" data-borboleta>
+    <div class="borboleta__voo">
+      <svg class="borboleta__asa borboleta__asa--e" viewBox="0 0 50 80">
+        <g transform="translate(50 0) scale(-1 1)">
+          <path d="M2 40C16 40 34 44 36 56C38 68 24 74 14 68C6 62 2 50 2 42Z" fill="#E2B56E" stroke="#B5833A" stroke-width="1.3"/>
+          <path d="M2 36C4 14 22 0 40 3C52 6 50 22 40 30C32 36 16 38 2 38Z" fill="url(#g-asa)" stroke="#A9504E" stroke-width="1.3"/>
+          <use href="#i-heart" x="20" y="12" width="13" height="12" fill="#fff" fill-opacity=".85"/>
+        </g>
+      </svg>
+      <svg class="borboleta__asa borboleta__asa--d" viewBox="0 0 50 80">
+        <defs>
+          <linearGradient id="g-asa" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#E7A39D"/>
+            <stop offset="1" stop-color="#F6D3CE"/>
+          </linearGradient>
+        </defs>
+        <path d="M2 40C16 40 34 44 36 56C38 68 24 74 14 68C6 62 2 50 2 42Z" fill="#E2B56E" stroke="#B5833A" stroke-width="1.3"/>
+        <path d="M2 36C4 14 22 0 40 3C52 6 50 22 40 30C32 36 16 38 2 38Z" fill="url(#g-asa)" stroke="#A9504E" stroke-width="1.3"/>
+        <use href="#i-heart" x="20" y="12" width="13" height="12" fill="#fff" fill-opacity=".85"/>
+      </svg>
+      <svg class="borboleta__corpo" viewBox="0 0 20 80">
+        <path d="M10 22C6 10 3 5 1 2M10 22C14 10 17 5 19 2" fill="none" stroke="#A9504E" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="1.5" cy="2.5" r="1.6" fill="#A9504E"/>
+        <circle cx="18.5" cy="2.5" r="1.6" fill="#A9504E"/>
+        <ellipse cx="10" cy="26" rx="3.4" ry="4" fill="#A9504E"/>
+        <path d="M7 30C6 42 8 60 10 72C12 60 14 42 13 30Z" fill="#B9706A"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Foto ampliada (galeria e espaço) -->
+  <dialog class="lupa" data-lupa aria-label="Foto ampliada">
+    <div class="lupa__caixa">
+      <div class="lupa__palco" data-lupa-palco></div>
+      <div class="lupa__rodape">
+        <p class="lupa__legenda" data-lupa-legenda></p>
+        <p class="lupa__contador" data-lupa-contador></p>
+      </div>
+      <button type="button" class="lupa__fechar" data-lupa-fechar aria-label="Fechar">
+        <svg aria-hidden="true"><use href="#i-fechar"/></svg>
+      </button>
+      <button type="button" class="seta lupa__seta lupa__seta--ant" data-lupa-ant aria-label="Foto anterior">
+        <svg aria-hidden="true"><use href="#i-voltar"/></svg>
+      </button>
+      <button type="button" class="seta seta--prox lupa__seta lupa__seta--prox" data-lupa-prox aria-label="Próxima foto">
+        <svg aria-hidden="true"><use href="#i-voltar"/></svg>
+      </button>
+    </div>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/fotos.js"></script>
+  <script src="js/animacoes.js"></script>
+</body>
+</html>

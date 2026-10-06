@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agendar horário | Patynhas Pet Mel Groomer</title>
+  <meta name="description" content="Peça um horário de banho e tosa em menos de um minuto. A mensagem abre pronta no WhatsApp.">
+  <meta name="theme-color" content="#FFF8F6">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Agendar horário | Patynhas Pet Mel Groomer">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/agendar.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="pagina-agenda">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-heart" viewBox="0 0 24 22">
+      <path d="M12 21s-7.5-4.6-10-9.3C.3 8.4 2 4 6 4c2.3 0 3.6 1.3 6 3.6C14.4 5.3 15.7 4 18 4c4 0 5.7 4.4 4 7.7C19.5 16.4 12 21 12 21z"/>
+    </symbol>
+    <symbol id="i-paw" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="3.2">
+        <ellipse cx="22" cy="40" rx="9" ry="12" transform="rotate(-20 22 40)"/>
+        <ellipse cx="39" cy="22" rx="9" ry="12.5"/>
+        <ellipse cx="61" cy="22" rx="9" ry="12.5"/>
+        <ellipse cx="78" cy="40" rx="9" ry="12" transform="rotate(20 78 40)"/>
+        <path d="M50 46c-9 0-15 8-21 17-5 7-6 14 0 18 5 3 11 1 21 1s16 2 21-1c6-4 5-11 0-18-6-9-12-17-21-17z"/>
+      </g>
+      <path style="fill:var(--rose-400)" d="M50 73s-7-4.3-9.2-8.6C39.2 61.3 41 57 44.6 57c2 0 3.3 1.2 5.4 3.3 2.1-2.1 3.4-3.3 5.4-3.3 3.6 0 5.4 4.3 3.8 7.4C57 68.7 50 73 50 73z"/>
+    </symbol>
+    <symbol id="i-pegada" viewBox="0 0 100 100">
+      <ellipse cx="20" cy="42" rx="10" ry="13" transform="rotate(-20 20 42)"/>
+      <ellipse cx="39" cy="22" rx="10" ry="13.5"/>
+      <ellipse cx="61" cy="22" rx="10" ry="13.5"/>
+      <ellipse cx="80" cy="42" rx="10" ry="13" transform="rotate(20 80 42)"/>
+      <path d="M50 47c-10 0-16 8-22 17-5 7-6 15 0 19 5 3 12 1 22 1s17 2 22-1c6-4 5-12 0-19-6-9-12-17-22-17z"/>
+    </symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24">
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/>
+    </symbol>
+    <symbol id="i-voltar" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.5 6l-6 6 6 6"/>
+    </symbol>
+    <symbol id="i-cao" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 17c7-5 17-5 24 0 5 4 7 10 7 17 0 12-8 19-19 19s-19-7-19-19c0-7 2-13 7-17z"/>
+        <path d="M20 17c-7-3-14 1-15 10-1 7 3 12 9 11"/>
+        <path d="M44 17c7-3 14 1 15 10 1 7-3 12-9 11"/>
+        <path d="M32 44v3m0 0c-1 2-3 3-5 3m5-3c1 2 3 3 5 3"/>
+      </g>
+      <ellipse cx="25" cy="32" rx="2.2" ry="2.6" fill="currentColor"/>
+      <ellipse cx="39" cy="32" rx="2.2" ry="2.6" fill="currentColor"/>
+      <ellipse cx="32" cy="41" rx="4" ry="3" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-gato" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 27l-2-18 13 9c4-1.5 10-1.5 14 0l13-9-2 18c3 5 3 11 0 16-4 7-10 10-18 10s-14-3-18-10c-3-5-3-11 0-16z"/>
+        <path d="M5 37l12 1M5 44l12-2M59 37l-12 1M59 44l-12-2"/>
+        <path d="M32 44v2m0 0c-1 2-3 3-5 2m5-2c1 2 3 3 5 2"/>
+      </g>
+      <ellipse cx="24.5" cy="34" rx="2.2" ry="3" fill="currentColor"/>
+      <ellipse cx="39.5" cy="34" rx="2.2" ry="3" fill="currentColor"/>
+      <path d="M32 44.5s-3.2-2-3.6-3.4c-.3-1 .3-1.8 1.2-1.8.8 0 1.5.5 2.4 1.3.9-.8 1.6-1.3 2.4-1.3.9 0 1.5.8 1.2 1.8-.4 1.4-3.6 3.4-3.6 3.4z" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <header class="topo" data-topo>
+    <div class="topo__inner">
+      <a class="marca" href="index.html" aria-label="Patynhas Pet Mel Groomer, ir para a página inicial">
+        <img src="assets/logo-mini.png" alt="" width="52" height="52">
+        <span class="marca__nome">Patynhas <span>Pet Mel</span></span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
+        <span class="menu-btn__barras" aria-hidden="true"></span>
+        <span class="sr">Abrir menu</span>
+      </button>
+
+      <nav class="menu" id="menu" aria-label="Principal" data-menu>
+        <a href="index.html">Início</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#duvidas">Dúvidas</a>
+        <a href="index.html#contato">Contato</a>
+        <a class="btn btn--mini btn--linha" href="index.html#contato" data-wa>
+          <svg aria-hidden="true"><use href="#i-whats"/></svg>
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="agenda" data-agenda-pagina data-passo="1">
+    <header class="agenda__cabeca" data-hero>
+      <canvas class="bolhas" data-bolhas aria-hidden="true"></canvas>
+      <div class="agenda__cabeca-inner">
+        <a class="voltar" href="index.html">
+          <svg aria-hidden="true"><use href="#i-voltar"/></svg>
+          Voltar ao site
+        </a>
+        <h1>Agendar horário</h1>
+        <p>Leva menos de um minuto. No fim, a mensagem abre pronta no seu WhatsApp e respondemos com o horário confirmado.</p>
+      </div>
+    </header>
+
+    <div class="agenda__inner">
+      <!-- Progresso: as etapas já feitas viram patinhas e podem ser revisitadas -->
+      <ol class="progresso" data-progresso aria-label="Etapas do agendamento">
+        <li><button type="button" data-ir="1"><span class="progresso__num"><span>1</span><svg aria-hidden="true"><use href="#i-pegada"/></svg></span><span class="progresso__nome">Pet</span></button></li>
+        <li><button type="button" data-ir="2"><span class="progresso__num"><span>2</span><svg aria-hidden="true"><use href="#i-pegada"/></svg></span><span class="progresso__nome">Serviço</span></button></li>
+        <li><button type="button" data-ir="3"><span class="progresso__num"><span>3</span><svg aria-hidden="true"><use href="#i-pegada"/></svg></span><span class="progresso__nome">Dia</span></button></li>
+        <li><button type="button" data-ir="4"><span class="progresso__num"><span>4</span><svg aria-hidden="true"><use href="#i-pegada"/></svg></span><span class="progresso__nome">Confirmar</span></button></li>
+      </ol>
+
+      <div class="agenda__corpo" data-corpo>
+        <form class="agenda__form" data-agenda novalidate>
+
+          <!-- ===== Etapa 1: o pet ===== -->
+          <section class="etapa" data-etapa="1" aria-labelledby="t-e1">
+            <h2 id="t-e1" tabindex="-1">Quem vem para o banho?</h2>
+
+            <div class="campo">
+              <label for="a-pet">Nome do pet</label>
+              <input id="a-pet" name="pet" autocomplete="off" placeholder="Ex.: Mel" aria-describedby="a-pet-erro">
+              <p class="campo__erro" id="a-pet-erro" hidden>Escreva o nome do pet para continuar.</p>
+            </div>
+
+            <fieldset class="escolha escolha--2">
+              <legend>Ele é</legend>
+              <label class="cartao cartao--bicho">
+                <input type="radio" name="especie" value="cachorro" checked>
+                <span class="cartao__corpo">
+                  <svg class="cartao__bicho" aria-hidden="true"><use href="#i-cao"/></svg>
+                  <span class="cartao__nome">Cachorro</span>
+                </span>
+              </label>
+              <label class="cartao cartao--bicho">
+                <input type="radio" name="especie" value="gato">
+                <span class="cartao__corpo">
+                  <svg class="cartao__bicho" aria-hidden="true"><use href="#i-gato"/></svg>
+                  <span class="cartao__nome">Gato</span>
+                </span>
+              </label>
+            </fieldset>
+
+            <fieldset class="escolha escolha--3" data-porte>
+              <legend>Porte</legend>
+              <label class="cartao">
+                <input type="radio" name="porte" value="pequeno" checked>
+                <span class="cartao__corpo"><span class="cartao__nome">Pequeno</span><span class="cartao__desc">até 10 kg</span></span>
+              </label>
+              <label class="cartao">
+                <input type="radio" name="porte" value="médio">
+                <span class="cartao__corpo"><span class="cartao__nome">Médio</span><span class="cartao__desc">de 10 a 25 kg</span></span>
+              </label>
+              <label class="cartao">
+                <input type="radio" name="porte" value="grande">
+                <span class="cartao__corpo"><span class="cartao__nome">Grande</span><span class="cartao__desc">acima de 25 kg</span></span>
+              </label>
+            </fieldset>
+
+            <fieldset class="campo campo--opcoes">
+              <legend>Pelo <span class="opcional">(opcional)</span></legend>
+              <label class="chip"><input type="radio" name="pelo" value="curto"><span>Curto</span></label>
+              <label class="chip"><input type="radio" name="pelo" value="médio"><span>Médio</span></label>
+              <label class="chip"><input type="radio" name="pelo" value="longo"><span>Longo</span></label>
+            </fieldset>
+
+            <div class="campo">
+              <label for="a-raca">Raça <span class="opcional">(se souber)</span></label>
+              <input id="a-raca" name="raca" list="racas" autocomplete="off">
+              <datalist id="racas">
+                <option value="Sem raça definida (vira-lata)">
+                <option value="Shih-tzu">
+                <option value="Lhasa Apso">
+                <option value="Poodle">
+                <option value="Yorkshire">
+                <option value="Maltês">
+                <option value="Spitz Alemão (Lulu da Pomerânia)">
+                <option value="Pinscher">
+                <option value="Bulldog Francês">
+                <option value="Pug">
+                <option value="Golden Retriever">
+                <option value="Labrador">
+                <option value="Border Collie">
+                <option value="Schnauzer">
+                <option value="Persa">
+                <option value="Siamês">
+              </datalist>
+            </div>
+          </section>
+
+          <!-- ===== Etapa 2: o serviço ===== -->
+          <section class="etapa" data-etapa="2" aria-labelledby="t-e2" hidden>
+            <h2 id="t-e2" tabindex="-1">O que <span data-nome-pet>ele</span> vai fazer?</h2>
+            <p class="etapa__dica">O valor depende do porte e do pelo. Passamos o orçamento pelo WhatsApp.</p>
+
+            <fieldset class="escolha escolha--servicos" aria-describedby="a-servico-erro">
+              <legend class="sr">Serviço</legend>
+              <label class="cartao"><input type="radio" name="servico" value="Banho"><span class="cartao__corpo"><span class="cartao__nome">Banho</span><span class="cartao__desc">Shampoo e condicionador para o tipo de pelo, secagem e escovação.</span></span></label>
+              <label class="cartao"><input type="radio" name="servico" value="Banho e tosa higiênica"><span class="cartao__corpo"><span class="cartao__nome">Banho e tosa higiênica</span><span class="cartao__desc">Banho completo e acerto da região íntima, da barriga e das patinhas.</span></span></label>
+              <label class="cartao"><input type="radio" name="servico" value="Banho e tosa na máquina"><span class="cartao__corpo"><span class="cartao__nome">Banho e tosa na máquina</span><span class="cartao__desc">Pelo uniforme e fácil de cuidar, na altura que você preferir.</span></span></label>
+              <label class="cartao"><input type="radio" name="servico" value="Banho e tosa na tesoura"><span class="cartao__corpo"><span class="cartao__nome">Banho e tosa na tesoura</span><span class="cartao__desc">Acabamento à mão, no padrão da raça ou mais natural.</span></span></label>
+              <label class="cartao"><input type="radio" name="servico" value="Hidratação"><span class="cartao__corpo"><span class="cartao__nome">Hidratação</span><span class="cartao__desc">Para pelos ressecados ou embaraçados, que voltam macios e com brilho.</span></span></label>
+              <label class="cartao"><input type="radio" name="servico" value="Ainda não sei, quero uma indicação"><span class="cartao__corpo"><span class="cartao__nome">Ainda não sei</span><span class="cartao__desc">Conte como ele está e indicamos o melhor cuidado.</span></span></label>
+            </fieldset>
+            <p class="campo__erro" id="a-servico-erro" hidden>Escolha um serviço. Se estiver em dúvida, marque “Ainda não sei”.</p>
+
+            <fieldset class="campo campo--opcoes">
+              <legend>Quer incluir algum cuidado extra? <span class="opcional">(opcional)</span></legend>
+              <label class="chip"><input type="checkbox" name="extras" value="corte de unhas"><span>Corte de unhas</span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="limpeza de ouvidos"><span>Limpeza de ouvidos</span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="escovação de dentes"><span>Escovação de dentes</span></label>
+              <label class="chip"><input type="checkbox" name="extras" value="retirada de subpelo"><span>Retirada de subpelo</span></label>
+            </fieldset>
+          </section>
+
+          <!-- ===== Etapa 3: dia e período ===== -->
+          <section class="etapa" data-etapa="3" aria-labelledby="t-e3" hidden>
+            <h2 id="t-e3" tabindex="-1">Quando fica bom para você?</h2>
+            <p class="etapa__dica">É a sua preferência. Confirmamos o horário exato pelo WhatsApp.</p>
+
+            <fieldset class="calendario" aria-describedby="a-dia-erro">
+              <legend>Dia</legend>
+              <div class="calendario__dias" data-dias></div>
+            </fieldset>
+            <p class="campo__erro" id="a-dia-erro" hidden>Escolha um dia.</p>
+
+            <fieldset class="escolha escolha--2" data-periodos aria-describedby="a-periodo-erro">
+              <legend>Período</legend>
+              <label class="cartao">
+                <input type="radio" name="periodo" value="manhã">
+                <span class="cartao__corpo"><span class="cartao__nome">Manhã</span><span class="cartao__desc" data-faixa="manhã">antes do almoço</span></span>
+              </label>
+              <label class="cartao">
+                <input type="radio" name="periodo" value="tarde">
+                <span class="cartao__corpo"><span class="cartao__nome">Tarde</span><span class="cartao__desc" data-faixa="tarde">depois do almoço</span></span>
+              </label>
+            </fieldset>
+            <p class="campo__erro" id="a-periodo-erro" hidden>Escolha manhã ou tarde.</p>
+          </section>
+
+          <!-- ===== Etapa 4: confirmar ===== -->
+          <section class="etapa" data-etapa="4" aria-labelledby="t-e4" hidden>
+            <h2 id="t-e4" tabindex="-1">Só mais um detalhe</h2>
+
+            <div class="campo">
+              <label for="a-tutor">Seu nome</label>
+              <input id="a-tutor" name="tutor" autocomplete="given-name">
+            </div>
+
+            <fieldset class="campo campo--opcoes">
+              <legend>Algo que devemos saber? <span class="opcional">(opcional)</span></legend>
+              <label class="chip"><input type="checkbox" name="notas" value="é a primeira vez aqui"><span>Primeira vez aqui</span></label>
+              <label class="chip"><input type="checkbox" name="notas" value="tem medo de secador"><span>Medo de secador</span></label>
+              <label class="chip"><input type="checkbox" name="notas" value="tem a pele sensível"><span>Pele sensível</span></label>
+              <label class="chip"><input type="checkbox" name="notas" value="está com o pelo embolado"><span>Pelo embolado</span></label>
+              <label class="chip"><input type="checkbox" name="notas" value="é idoso"><span>Pet idoso</span></label>
+              <label class="chip"><input type="checkbox" name="notas" value="fica agitado perto de outros pets"><span>Agitado com outros pets</span></label>
+            </fieldset>
+
+            <div class="campo">
+              <label for="a-obs">Quer contar mais alguma coisa? <span class="opcional">(opcional)</span></label>
+              <textarea id="a-obs" name="obs" rows="3" placeholder="Ex.: usa remédio, acabou de ser vacinado, prefere laço azul..."></textarea>
+            </div>
+
+            <p class="form__nota">Nada é enviado sem você confirmar no WhatsApp.</p>
+          </section>
+
+          <div class="agenda__nav">
+            <button type="button" class="btn btn--linha" data-voltar>
+              <svg aria-hidden="true"><use href="#i-voltar"/></svg>
+              Voltar
+            </button>
+            <button type="button" class="btn" data-avancar>Continuar</button>
+            <button type="submit" class="btn" data-enviar hidden>
+              <svg aria-hidden="true"><use href="#i-whats"/></svg>
+              Enviar pelo WhatsApp
+            </button>
+          </div>
+        </form>
+
+        <!-- Ficha do pet: vai sendo preenchida conforme as escolhas -->
+        <aside class="ficha" data-ficha aria-labelledby="t-ficha">
+          <div class="ficha__topo">
+            <img src="assets/logo-mini.png" alt="" width="44" height="44">
+            <div>
+              <h2 class="ficha__titulo" id="t-ficha">Ficha do pet</h2>
+              <p class="ficha__sub">Patynhas Pet Mel Groomer</p>
+            </div>
+          </div>
+          <dl class="ficha__dados">
+            <div><dt>Pet</dt><dd data-f="pet">—</dd></div>
+            <div><dt>Perfil</dt><dd data-f="perfil">—</dd></div>
+            <div><dt>Serviço</dt><dd data-f="servico">—</dd></div>
+            <div><dt>Extras</dt><dd data-f="extras">—</dd></div>
+            <div><dt>Quando</dt><dd data-f="quando">—</dd></div>
+          </dl>
+          <div class="ficha__carimbo" aria-hidden="true">
+            <svg><use href="#i-heart"/></svg>
+            Pedido pronto
+          </div>
+        </aside>
+      </div>
+
+      <!-- Tela final -->
+      <section class="pronto" data-pronto hidden aria-labelledby="t-pronto">
+        <svg class="pronto__pata" aria-hidden="true"><use href="#i-paw"/></svg>
+        <h2 id="t-pronto" tabindex="-1">Mensagem pronta no WhatsApp</h2>
+        <p data-pronto-texto>Confira e toque em enviar no WhatsApp. Assim que recebermos, respondemos com o horário confirmado.</p>
+        <div class="pronto__acoes">
+          <a class="btn" href="#" target="_blank" rel="noopener" data-pronto-link>
+            <svg aria-hidden="true"><use href="#i-whats"/></svg>
+            Abrir o WhatsApp de novo
+          </a>
+          <a class="btn btn--linha" href="index.html">Voltar ao site</a>
+        </div>
+        <div class="pronto__mensagem">
+          <p class="pronto__rotulo">Sua mensagem</p>
+          <pre data-pronto-mensagem></pre>
+        </div>
+        <button type="button" class="pronto__novo" data-novo>Agendar outro pet</button>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape rodape--curto">
+    <div class="rodape__inner">
+      <p class="rodape__copy">© <span data-ano>2026</span> Patynhas Pet Mel Groomer</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/agendar.js"></script>
+  <script src="js/animacoes.js"></script>
+</body>
+</html>
